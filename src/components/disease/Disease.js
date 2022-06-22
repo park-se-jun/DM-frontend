@@ -38,33 +38,35 @@ export default function Disease() {
                 return "button_select1"; 
 
             } else if (cnt1 === 1) {
-                setRank1([id, "second"])
+                setRank1([id, "second"]);
                 setBtn1(true);
                 setTag((tag) => [...tag, "#두통"]);
                 setCnt1(cnt1+1);
                 return "button_select2"; 
             } else if (cnt1 === 2) {
-                setRank1([id, "third"])
+                setRank1([id, "third"]);
                 setBtn1(true);
                 setTag((tag) => [...tag, "#두통"]);
                 setCnt1(cnt1+1);
                 return "button_select3"; 
             } else if (cnt1 === 3) {
-                setRank1([id ,"four"])
+                setRank1([id ,"four"]);
                 setBtn1(true);
                 setTag((tag) => [...tag, "#두통"]);
                 setCnt1(cnt1+1);
                 return "button_select4"; 
             } else if (cnt1 === 4) {
-                setRank1([id, "five"])
+                setRank1([id, "five"]);
                 setBtn1(true);
                 setTag((tag) => [...tag, "#두통"]);
-                setCnt1(cnt1-5);
+                setCnt1(-1);
                 return "button_select5"; 
-            } else if (cnt1 < 0){
+            } else if (cnt1 < 0) {
+                setRank1([id, "zero"]);
+                setBtn1(true);
                 setCnt1(cnt1+1);
-                return "button_select6";
-            }
+                return "disease_button";
+            } 
             
         } else if (id === 2) {
         
@@ -95,11 +97,12 @@ export default function Disease() {
             } else if (cnt2 === 4) {
                 setRank2([id, "five"]);
                 setTag((tag) => [...tag, "#암"]);
-                setCnt2(cnt2+1);
+                setCnt2(-1);
                 return "button_select5"; 
-            } else if (cnt2 === 5){
-                setCnt2(0);
-                console.log(cnt2);
+            } else if (cnt2 < 0) {
+                setRank2([id, "zero"]);
+                setBtn2(true);
+                setCnt2(cnt2+1);
                 return "disease_button";
             }
 
@@ -133,10 +136,12 @@ export default function Disease() {
                 setRank3([id, "five"]);
                 setBtn3(true);
                 setTag((tag) => [...tag, "#증상3"]);
-                setCnt3(cnt3+1);
+                setCnt3(-1);
                 return "button_select5"; 
-            } else if (cnt3 === 5) {
-                setCnt3(0);
+            } else if (cnt3 < 0) {
+                setRank3([id, "zero"]);
+                setBtn3(true);
+                setCnt3(cnt3+1);
                 return "disease_button";
             }
         } else if (id === 4) {
@@ -169,10 +174,12 @@ export default function Disease() {
                 setRank4([id, "five"]);
                 setBtn4(true);
                 setTag((tag) => [...tag, "#증상3"]);
-                setCnt4(cnt4+1);
+                setCnt4(-1);
                 return "button_select5"; 
-            } else if (cnt4 === 5){
-                setCnt4(0);
+            } else if (cnt4 < 0) {
+                setRank4([id, "zero"]);
+                setBtn4(true);
+                setCnt4(cnt4+1);
                 return "disease_button";
             }
         } else if (id === 5) {
@@ -203,12 +210,14 @@ export default function Disease() {
                 return "button_select4"; 
             } else if (cnt5 === 4) {
                 setRank5([id, "five"]);
-                setBtn3(true);
+                setBtn5(true);
                 setTag((tag) => [...tag, "#증상3"]);
-                setCnt5(cnt5+1);
+                setCnt5(-1);
                 return "button_select5"; 
-            } else if (cnt5 === 5){
-                setCnt5(0);
+            } else if (cnt5 < 0) {
+                setRank5([id, "zero"]);
+                setBtn5(true);
+                setCnt5(cnt5+1);
                 return "disease_button";
             }
         }else if (id === 6) {
@@ -241,10 +250,12 @@ export default function Disease() {
                 setRank6([id, "five"]);
                 setBtn6(true);
                 setTag((tag) => [...tag, "#증상3"]);
-                setCnt6(cnt6+1);
+                setCnt6(-1);
                 return "button_select5"; 
-            } else if (cnt6 === 5){
-                setCnt6(0);
+            } else if (cnt6 < 0) {
+                setRank6([id, "zero"]);
+                setBtn6(true);
+                setCnt6(cnt6+1);
                 return "disease_button";
             }
         }
@@ -261,6 +272,8 @@ export default function Disease() {
             return "button_select4";
         } else if (rank1[0] === 1 && rank1[1] === "five") {
             return "button_select5";
+        } else if (rank1[0] === 1 && rank1[1] === "zero"){
+            return "disease_button";
         } else {
             return "disease_button";
         }
@@ -277,6 +290,8 @@ export default function Disease() {
             return "button_select4";
         } else if (rank2[0] === 2 && rank2[1] === "five") {
             return "button_select5";
+        } else if (rank2[0] === 1 && rank2[1] === "zero"){
+            return "disease_button";
         } else {
             return "disease_button";
         }
@@ -293,6 +308,8 @@ export default function Disease() {
             return "button_select4";
         } else if (rank3[0] === 3 && rank3[1] === "five") {
             return "button_select5";
+        } else if (rank3[0] === 1 && rank3[1] === "zero"){
+            return "disease_button";
         } else {
             return "disease_button";
         }
@@ -309,6 +326,8 @@ export default function Disease() {
             return "button_select4";
         } else if (rank4[0] === 4 && rank4[1] === "five") {
             return "button_select5";
+        } else if (rank4[0] === 1 && rank4[1] === "zero"){
+            return "disease_button";
         } else {
             return "disease_button";
         }
@@ -325,6 +344,8 @@ export default function Disease() {
             return "button_select4";
         } else if (rank5[0] === 5 && rank5[1] === "five") {
             return "button_select5";
+        } else if (rank5[0] === 1 && rank5[1] === "zero"){
+            return "disease_button";
         } else {
             return "disease_button";
         }
@@ -341,6 +362,8 @@ export default function Disease() {
             return "button_select4";
         } else if (rank6[0] === 6 && rank6[1] === "five") {
             return "button_select5";
+        } else if (rank6[0] === 6 && rank6[1] === "zero"){
+            return "disease_button";
         } else {
             return "disease_button";
         }
