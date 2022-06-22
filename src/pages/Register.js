@@ -7,6 +7,7 @@ import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 
 import { register } from "../actions/auth";
+import MainLayout from "../components/MainLayout";
 
 const required = (value) => {
   if (!value) {
@@ -41,9 +42,9 @@ const vuserid = (value) => {
 const vusername = (value) => {
   if (value.length < 3 || value.length > 20) {
     return (
-        <div className="alert alert-danger" role="alert">
-          The username must be between 3 and 20 characters.
-        </div>
+      <div className="alert alert-danger" role="alert">
+        The username must be between 3 and 20 characters.
+      </div>
     );
   }
 };
@@ -68,7 +69,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [successful, setSuccessful] = useState(false);
 
-  const { message } = useSelector(state => state.message);
+  const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
 
   const onChangeUserid = (e) => {
@@ -110,82 +111,91 @@ const Register = () => {
   };
 
   return (
-    <div className="col-md-12">
-      <div className="card card-container">
-        <img
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          alt="profile-img"
-          className="profile-img-card"
-        />
+    <MainLayout imagePath ="images/sampleImage3.jpg"title="회원가입"detail="해당 서비스를 이용하기 위해, 사용자 정보를 등록해주세요.">
+      <div className="col-md-12">
+        <div className="card card-container">
+          <img
+            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            alt="profile-img"
+            className="profile-img-card"
+          />
 
-        <Form onSubmit={handleRegister} ref={form}>
-          {!successful && (
-            <div>
-              <div className="form-group">
-                <label htmlFor="username">이름</label>
-                <Input
+          <Form onSubmit={handleRegister} ref={form}>
+            {!successful && (
+              <div>
+                <div className="form-group">
+                  <label htmlFor="username">이름</label>
+                  <Input
                     type="text"
                     className="form-control"
                     name="username"
                     value={username}
                     onChange={onChangeUserid}
                     validations={[required, vusername]}
-                />
-              </div>
+                  />
+                </div>
 
+                <div className="form-group">
+                  <label htmlFor="userid">ID</label>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="userid"
+                    value={userid}
+                    onChange={onChangeUserid}
+                    validations={[required, vuserid]}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="email">Email</label>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="email"
+                    value={email}
+                    onChange={onChangeEmail}
+                    validations={[required, validEmail]}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="password">Password</label>
+                  <Input
+                    type="password"
+                    className="form-control"
+                    name="password"
+                    value={password}
+                    onChange={onChangePassword}
+                    validations={[required, vpassword]}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <button className="btn btn-primary btn-block">
+                    회원가입
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {message && (
               <div className="form-group">
-                <label htmlFor="userid">ID</label>
-                <Input
-                  type="text"
-                  className="form-control"
-                  name="userid"
-                  value={userid}
-                  onChange={onChangeUserid}
-                  validations={[required, vuserid]}
-                />
+                <div
+                  className={
+                    successful ? "alert alert-success" : "alert alert-danger"
+                  }
+                  role="alert"
+                >
+                  {message}
+                </div>
               </div>
-
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <Input
-                  type="text"
-                  className="form-control"
-                  name="email"
-                  value={email}
-                  onChange={onChangeEmail}
-                  validations={[required, validEmail]}
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <Input
-                  type="password"
-                  className="form-control"
-                  name="password"
-                  value={password}
-                  onChange={onChangePassword}
-                  validations={[required, vpassword]}
-                />
-              </div>
-
-              <div className="form-group">
-                <button className="btn btn-primary btn-block">회원가입</button>
-              </div>
-            </div>
-          )}
-
-          {message && (
-            <div className="form-group">
-              <div className={ successful ? "alert alert-success" : "alert alert-danger" } role="alert">
-                {message}
-              </div>
-            </div>
-          )}
-          <CheckButton style={{ display: "none" }} ref={checkBtn} />
-        </Form>
+            )}
+            <CheckButton style={{ display: "none" }} ref={checkBtn} />
+          </Form>
+        </div>
       </div>
-    </div>
+    </MainLayout>
   );
 };
 

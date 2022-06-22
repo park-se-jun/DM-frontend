@@ -61,30 +61,12 @@ const App = () => {
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
-            로고
+            DM
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link to={"/home"} className="nav-link">
                 Home
-              </Link>
-            </li>
-
-            <li className="nav-item">
-              <Link to={"/home"} className="nav-link">
-                질병확인
-              </Link>
-            </li>
-
-            <li className="nav-item">
-              <Link to={"/home"} className="nav-link">
-                커뮤니티
-              </Link>
-            </li>
-
-            <li className="nav-item">
-              <Link to={"/home"} className="nav-link">
-                마이페이지
               </Link>
             </li>
 
@@ -130,13 +112,13 @@ const App = () => {
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Link to={"/login"} className="nav-link">
-                  로그인
+                  Login
                 </Link>
               </li>
 
               <li className="nav-item">
                 <Link to={"/register"} className="nav-link">
-                  회원가입
+                  Sign Up
                 </Link>
               </li>
             </div>

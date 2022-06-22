@@ -1,6 +1,6 @@
 import "./disease.css";
 import React, {useState} from 'react';
-import { Button } from "@material-ui/core";
+import DiseaseSearch from './DiseaseSearch';
 
 export default function Disease() {
     const [btn1, setBtn1] = useState(false);
@@ -148,32 +148,32 @@ export default function Disease() {
             if (cnt4 === 0) {
                 setRank4([id, "first"]);
                 setBtn4(true);
-                setTag((tag) => [...tag, "#증상3"]);
+                setTag((tag) => [...tag, "#증상4"]);
                 setCnt4(cnt4+1);
                 return "button_select1"; 
                 
             } else if (cnt4 === 1) {
                 setRank4([id, "second"]);
                 setBtn4(true);
-                setTag((tag) => [...tag, "#증상3"]);
+                setTag((tag) => [...tag, "#증상4"]);
                 setCnt4(cnt4+1);
                 return "button_select2"; 
             } else if (cnt4 === 2) {
                 setRank4([id, "third"]);
                 setBtn4(true);
-                setTag((tag) => [...tag, "#증상3"]);
+                setTag((tag) => [...tag, "#증상4"]);
                 setCnt4(cnt4+1);
                 return "button_select3"; 
             } else if (cnt4 === 3) {
                 setRank4([id, "four"]);
                 setBtn4(true);
-                setTag((tag) => [...tag, "#증상3"]);
+                setTag((tag) => [...tag, "#증상4"]);
                 setCnt4(cnt4+1);
                 return "button_select4"; 
             } else if (cnt4 === 4) {
                 setRank4([id, "five"]);
                 setBtn4(true);
-                setTag((tag) => [...tag, "#증상3"]);
+                setTag((tag) => [...tag, "#증상4"]);
                 setCnt4(-1);
                 return "button_select5"; 
             } else if (cnt4 < 0) {
@@ -186,32 +186,32 @@ export default function Disease() {
             if (cnt5 === 0) {
                 setRank5([id, "first"]);
                 setBtn5(true);
-                setTag((tag) => [...tag, "#증상3"]);
+                setTag((tag) => [...tag, "#증상5"]);
                 setCnt5(cnt5+1);
                 return "button_select1"; 
                 
             } else if (cnt5 === 1) {
                 setRank5([id, "second"]);
                 setBtn5(true);
-                setTag((tag) => [...tag, "#증상3"]);
+                setTag((tag) => [...tag, "#증상5"]);
                 setCnt5(cnt5+1);
                 return "button_select2"; 
             } else if (cnt5 === 2) {
                 setRank5([id, "third"]);
                 setBtn5(true);
-                setTag((tag) => [...tag, "#증상3"]);
+                setTag((tag) => [...tag, "#증상5"]);
                 setCnt5(cnt5+1);
                 return "button_select3"; 
             } else if (cnt5 === 3) {
                 setRank5([id, "four"]);
                 setBtn5(true);
-                setTag((tag) => [...tag, "#증상3"]);
+                setTag((tag) => [...tag, "#증상5"]);
                 setCnt5(cnt5+1);
                 return "button_select4"; 
             } else if (cnt5 === 4) {
                 setRank5([id, "five"]);
                 setBtn5(true);
-                setTag((tag) => [...tag, "#증상3"]);
+                setTag((tag) => [...tag, "#증상5"]);
                 setCnt5(-1);
                 return "button_select5"; 
             } else if (cnt5 < 0) {
@@ -222,7 +222,7 @@ export default function Disease() {
             }
         }else if (id === 6) {
             if (cnt6 === 0) {
-                setTag((tag) => [...tag, "#증상3"]);
+                setTag((tag) => [...tag, "#증상6"]);
                 setRank6([id, "first"]);
                 setBtn6(true);
                 setCnt6(cnt6+1);
@@ -231,25 +231,25 @@ export default function Disease() {
             } else if (cnt6 === 1) {
                 setRank6([id, "second"]);
                 setBtn6(true);
-                setTag((tag) => [...tag, "#증상3"]);
+                setTag((tag) => [...tag, "#증상6"]);
                 setCnt6(cnt6+1);
                 return "button_select2"; 
             } else if (cnt6 === 2) {
                 setRank6([id, "third"]);
                 setBtn6(true);
-                setTag((tag) => [...tag, "#증상3"]);
+                setTag((tag) => [...tag, "#증상6"]);
                 setCnt6(cnt6+1);
                 return "button_select3"; 
             } else if (cnt6 === 3) {
                 setRank6([id, "four"]);
                 setBtn6(true);
-                setTag((tag) => [...tag, "#증상3"]);
+                setTag((tag) => [...tag, "#증상6"]);
                 setCnt6(cnt6+1);
                 return "button_select4"; 
             } else if (cnt6 === 4) {
                 setRank6([id, "five"]);
                 setBtn6(true);
-                setTag((tag) => [...tag, "#증상3"]);
+                setTag((tag) => [...tag, "#증상6"]);
                 setCnt6(-1);
                 return "button_select5"; 
             } else if (cnt6 < 0) {
@@ -378,13 +378,7 @@ export default function Disease() {
                 <button onClick={() => buttonOnClick(5)} className={ colorChange5()}>증상</button>
                 <button onClick={() => buttonOnClick(6)} className={ colorChange6()}>증상</button>
             </div>
-            <div className="search_container">
-                <button className="search_button">검색</button>
-            </div>
-            <div>
-                <h5>작성한 타이틀</h5>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</p>
-            </div>
+            <DiseaseSearch tags={tag}/>
         </div>
     );
 };
