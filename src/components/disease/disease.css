@@ -1,6 +1,5 @@
 .button_container {
     display: flexbox;
-    background-color: thistle;
     width: 1300px;
 }
 .disease_button {
