@@ -112,18 +112,20 @@ const Register = () => {
 
   return (
     <MainLayout imagePath ="images/sampleImage3.jpg"title="회원가입"detail="해당 서비스를 이용하기 위해, 사용자 정보를 등록해주세요.">
-    <div className="col-md-12">
-      <div className="card card-container">
-        <img
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          alt="profile-img"
-          className="profile-img-card"
-        />
+   <div className="col-md-12"      
+        style={{
+          minHeight: "70vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
+        <div  style={{float:"none", margin:"0 auto",minWidth:"506px"}}>
 
         <Form onSubmit={handleRegister} ref={form}>
           {!successful && (
             <div>
-              <div className="form-group">
+              <div className="form-group" >
                 <label htmlFor="username">이름</label>
                 <Input
                     type="text"

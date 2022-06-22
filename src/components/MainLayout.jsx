@@ -33,12 +33,9 @@ function MainLayout({ imagePath, title, detail, children }) {
         </Box>
       )}
       <Box
-        className="pt-3"
+        className="mt-3"
         style={{
           minHeight: "70vh",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
         }}
       >
         {children}

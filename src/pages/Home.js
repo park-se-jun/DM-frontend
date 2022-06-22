@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import MainLayout from "../components/MainLayout";
 
 import UserService from "../services/user.service";
-
+import Disease from "../components/disease/Disease.js";
 const Home = () => {
   const [content, setContent] = useState("");
 
@@ -31,6 +31,7 @@ const Home = () => {
       }
     >
       <div className="container">
+        <Disease />
         <header className="jumbotron">
           <h3>{content}</h3>
         </header>

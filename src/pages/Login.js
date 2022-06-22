@@ -74,8 +74,15 @@ const Login = (props) => {
       title="로그인"
       detail="해당 서비스를 이용하기 위해, 사용자 정보를 입력해주세요."
     >
-      <div className="col-md-12" >
-        <div  style={{float:"none", margin:"0 auto",maxWidth:"506px"}}>
+      <div className="col-md-12"      
+        style={{
+          minHeight: "70vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
+        <div  style={{float:"none", margin:"0 auto",minWidth:"506px"}}>
 
           <Form onSubmit={handleLogin} ref={form}>
             <div className="form-group">
