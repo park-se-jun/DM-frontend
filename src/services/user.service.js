@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 
-const API_URL = "http://localhost:8080/api/test/";
+const API_URL = process.env.REACT_APP_SPRING_SERVER + "/api/authority/";
 
 const getPublicContent = () => {
   return axios.get(API_URL + "all");

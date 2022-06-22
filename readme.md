@@ -4,8 +4,8 @@
 
 프로젝트명 : DM(Disease Mapping)
 
-yarn install
-yarn start 로 실행
+npm install
+npm start
 
 ## 팀원 소개
 

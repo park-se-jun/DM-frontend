@@ -76,7 +76,7 @@ function Header() {
 
               {currentUser && (
                 <li className="nav-item">
-                  <Link to={"/user"} className="nav-link">
+                  <Link to={"/tutorial"} className="nav-link">
                     User
                   </Link>
                 </li>
@@ -91,7 +91,7 @@ function Header() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <a href="/login" className="nav-link" onClick={logout}>
+                  <a href="/login" className="nav-link" onClick={logOut}>
                     LogOut
                   </a>
                 </li>
