@@ -32,7 +32,17 @@ function MainLayout({ imagePath, title, detail, children }) {
           </Typography>
         </Box>
       )}
-      <Box className="pt-3">{children}</Box>
+      <Box
+        className="pt-3"
+        style={{
+          minHeight: "70vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
+        {children}
+      </Box>
     </>
   );
 }

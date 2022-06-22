@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../actions/auth';
 import { clearMessage } from '../actions/message';
-import eventBus from '../common/EventBus';
+import EventBus from '../common/EventBus';
 import { history } from '../helpers/history';
 
 function Header() {
@@ -31,12 +31,12 @@ function Header() {
       setShowAdminBoard(false);
     }
 
-    eventBus.on("logout", () => {
+    EventBus.on("logout", () => {
       logOut();
     });
 
     return () => {
-      eventBus.remove("logout");
+      EventBus.remove("logout");
     };
   }, [currentUser, logOut]);
 

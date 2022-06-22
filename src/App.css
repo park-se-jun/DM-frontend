@@ -3,8 +3,8 @@ label {
   margin-top: 10px;
 }
 
-.card-container.card {
-  max-width: 350px !important;
+.card-container {
+  max-width: 506px !important;
   padding: 40px 40px;
 }
 
@@ -29,4 +29,25 @@ label {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
+}
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #d4ffc0 !important;
+}
+.btn {
+  color: #000;
+  border: #d4ffc0;
+}
+
+.nav-link ,.navbar-brand{
+  color :#000!important;
+}
+.form-control{
+  height: 60px;
+  font-size: 30px;
+}
+.to-register :hover{
+  text-decoration: underline;
 }
