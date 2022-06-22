@@ -1,0 +1,76 @@
+.button_container {
+    display: flexbox;
+    background-color: thistle;
+    width: 1300px;
+}
+.disease_button {
+    width: 180px;
+    height: 41px;
+    border-radius: 40px;
+    border: 1px solid #CDCDCD;
+    margin-right: 30px;
+    margin-bottom: 21px;
+
+}
+
+.button_select1 {
+    width: 180px;
+    height: 41px;
+    border-radius: 40px;
+    border: 1px solid #CDCDCD;
+    margin-right: 30px;
+    margin-bottom: 21px;
+    background-color: #EBFFC0;
+}
+
+.button_select2 {
+    width: 180px;
+    height: 41px;
+    border-radius: 40px;
+    border: 1px solid #CDCDCD;
+    margin-right: 30px;
+    margin-bottom: 21px;
+    background-color: #DAFA97;
+}
+
+.button_select3 {
+    width: 180px;
+    height: 41px;
+    border-radius: 40px;
+    border: 1px solid #CDCDCD;
+    margin-right: 30px;
+    margin-bottom: 21px;
+    background-color: #B8DF66;
+}
+
+.button_select4 {
+    width: 180px;
+    height: 41px;
+    border-radius: 40px;
+    border: 1px solid #CDCDCD;
+    margin-right: 30px;
+    margin-bottom: 21px;
+    background-color: #96BF3F;
+}
+
+.button_select5 {
+    width: 180px;
+    height: 41px;
+    border-radius: 40px;
+    border: 1px solid #CDCDCD;
+    margin-right: 30px;
+    margin-bottom: 21px;
+    background-color: #79A321;
+}
+
+.search_container {
+    display: flex;
+    justify-content: flex-end;
+}
+.search_button {
+    margin-top: 38px;
+    width: 115px;
+    height: 32px;
+    background-color: #D4FFC0;
+    border: 1px solid #D4FFC0;
+}
