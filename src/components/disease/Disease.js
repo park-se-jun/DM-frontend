@@ -1,5 +1,6 @@
 import "./disease.css";
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import { Button } from "@material-ui/core";
 
 export default function Disease() {
     const [btn1, setBtn1] = useState(false);
@@ -8,7 +9,6 @@ export default function Disease() {
     const [btn4, setBtn4] = useState(false);
     const [btn5, setBtn5] = useState(false);
     const [btn6, setBtn6] = useState(false);
-    const [btn7, setBtn7] = useState(false);
     
     const [rank1, setRank1] = useState([0, ""]);
     const [rank2, setRank2] = useState([0, ""]);
@@ -59,11 +59,11 @@ export default function Disease() {
                 setRank1([id, "five"])
                 setBtn1(true);
                 setTag((tag) => [...tag, "#두통"]);
-                setCnt1(cnt1+1);
+                setCnt1(cnt1-5);
                 return "button_select5"; 
-            } else if (cnt1 === 5){
-                setCnt1(0);
-                return "disease_button";
+            } else if (cnt1 < 0){
+                setCnt1(cnt1+1);
+                return "button_select6";
             }
             
         } else if (id === 2) {
