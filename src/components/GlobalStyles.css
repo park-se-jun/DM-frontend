@@ -1,0 +1,130 @@
+
+.table {
+    width: 100%;
+    font-size: 11px;
+}
+
+.addBtnStyle{
+    color: #021420;
+    background: white;
+    padding: 0.100rem 0.50rem;
+    border: 1px solid dimgray;
+    border-radius: 0.300rem;
+    font-size: 11px;
+}
+
+.editBtnStyle{
+    color: #021420;
+    background: white;
+    padding: 0.100rem 0.50rem;
+    border: 1px solid dimgray;
+    border-radius: 0.300rem;
+    font-size: 9px;
+}
+
+.delBtnStyle{
+    color: white;
+    background: #c31432;
+    padding: 0.100rem 0.50rem;
+    border: none;
+    border-radius: 0.300rem;
+    font-size: 11px;
+}
+
+.card {
+    background-color: #f7f7f7;
+    /*padding: 20px 25px 30px;*/
+    margin: 0 auto 25px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.image-card {
+    background-color: #a7a7a7;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.right-align{
+    text-align: right;
+}
+
+.left-align{
+    text-align: left;
+}
+
+.center-align{
+    text-align: center;
+}
+
+.left-margin{
+    margin-left: 10%;
+}
+
+.right-margin{
+    margin-right: 10%;
+}
+
+.vert-center-align{
+    vertical-align: center;
+}
+
+.form-select{
+    font-size: 12px;
+}
+
+.form-control{
+    font-size:11px;
+}
+
+.eleven{
+    font-size:11px;
+}
+
+.radio{
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+}
+
+.disable-background{
+    color: black;
+    background-color: dimgray;
+    font-style: italic;
+}
+
+.divRight{
+    float: left;
+}
+
+.overScroll{
+    width: 100%;
+    overflow-x: auto;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*min-height: 100vh;*/
+}
+
+.preview {
+    max-width: 200px;
+}
+
+.fileUploadBtn{
+    width: 75px;
+}
+
+.floatRight{
+    float: right;
+}
