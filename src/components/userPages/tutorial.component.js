@@ -8,6 +8,7 @@ const Tutorial = (props) => {
     id: null,
     title: "",
     description: "",
+    img: "",
     published: false,
 
     submitted: false
@@ -66,7 +67,7 @@ const Tutorial = (props) => {
   };
 
   const removeTutorial = () => {
-    TutorialService.remove(currentTutorial.id)
+    TutorialService.delete(currentTutorial.id)
         .then(response => {
           console.log(response.data);
           // props.history.push("/admin");
@@ -81,13 +82,13 @@ const Tutorial = (props) => {
   };
 
   const imageView = (tutorial) => {
-    const id = tutorial.id;
+    const img = tutorial.img;
     let name = "";
     let url = "";
     let exist = false;
 
     for(let i = 0; i < images.length; i++){
-      if(images[i]['name'].includes(id)){
+      if(images[i]['name'].includes(img)){
         name = images[i]['name'];
         url = images[i]['url'];
         exist = true;

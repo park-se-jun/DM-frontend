@@ -4,8 +4,8 @@ import { useTable, useSortBy } from "react-table";
 import { makeStyles } from '@material-ui/core/styles';
 import _ from "underscore";
 
-import tutorialService from "../../services/tutorial.service";
-import imageService from "../../services/image.service";
+import TutorialService from "../../services/tutorial.service";
+import ImageService from "../../services/image.service";
 import "../GlobalStyles.css";
 
 const TutorialList = (props) => {
@@ -44,7 +44,7 @@ const TutorialList = (props) => {
   const retrieveTutorials = () => {
     const params = getRequestParams(searchWord, page, pageSize);
 
-    tutorialService.getAll(params)
+    TutorialService.getAll(params)
         .then((response) => {
           const { tutorials, totalItems, totalPages } = response.data;
 
@@ -66,7 +66,7 @@ const TutorialList = (props) => {
   }, [page, pageSize]);
 
   const retrieveImages = () => {
-    imageService.getFiles()
+    ImageService.getFiles()
         .then(response => {
           setImages(response.data);
           // console.log(response.data);
@@ -110,14 +110,14 @@ const TutorialList = (props) => {
     setPage(1);
   };
 
-  const imageView = (ID) => {
-    const id = ID;
+  const imageView = (imagename) => {
+    const image = imagename;
     let name = "";
     let url = "";
     let exist = false;
 
     for(let i = 0; i < images.length; i++){
-      if(images[i]['name'].includes(id)){
+      if(images[i]['name'].includes(image)){
         name = images[i]['name'];
         url = images[i]['url'];
         exist = true;
@@ -143,9 +143,9 @@ const TutorialList = (props) => {
       () => [
         {
           Header: "이미지",
-          accessor: "actions",
+          accessor: "",
           Cell: (props) => {
-            const rowIdx = props.row.id;
+            const rowIdx = props.row.img;
             return (
                 <div>
                   {imageView(rowIdx)}

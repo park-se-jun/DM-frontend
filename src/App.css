@@ -3,6 +3,10 @@ label {
   margin-top: 10px;
 }
 
+/* .card-container {
+  max-width: 506px !important;
+  padding: 40px 40px;
+} */
 .card-container.card {
   max-width: 350px !important;
   padding: 40px 40px;
@@ -29,4 +33,93 @@ label {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
+}
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #d4ffc0 !important;
+}
+.btn {
+  color: #000;
+  border: #d4ffc0;
+}
+
+.nav-link ,.navbar-brand{
+  color :#000!important;
+}
+.form-control{
+  height: 60px;
+  font-size: 30px;
+}
+.to-register :hover{
+  text-decoration: underline;
+}
+
+/* 추가 */
+/* 못생긴 기본 속성 삭제 */
+button {
+  outline: none;
+  border: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+input,
+input:focus {
+  outline: none;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+/* 자주 사용되는 속성 */
+.flex-horiz{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-verti {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-space-between {
+  /* 양 옆 끝으로 정렬 */
+  justify-content: space-between;
+}
+
+.text-gray {
+  color: #BDBDBD;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.input-size,
+.input-placeholder-size {
+  font-size: 15px!important;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border: 1px solid #69A155;
+  box-shadow: none;
 }

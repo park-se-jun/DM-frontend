@@ -41,6 +41,7 @@ const TutorialAdd = () => {
           setTutorial({
             id: response.data.id,
             title: response.data.title,
+            img: response.image.name,
             description: response.data.description
           });
           setSubmitted(true);

@@ -16,9 +16,9 @@ const getFiles = () => {
     return http.get("/images/files");
 };
 
-const imageService = {
+const ImageService = {
     getFiles,
     upload,
 };
 
-export default imageService;
+export default ImageService;

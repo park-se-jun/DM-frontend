@@ -7,6 +7,7 @@ import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 
 import { register } from "../actions/auth";
+import MainLayout from "../components/MainLayout";
 
 const required = (value) => {
   if (!value) {
@@ -99,7 +100,7 @@ const Register = () => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      dispatch(register(username, userid, email, password))
+      dispatch(register(username, userid, email, password, "user"))
         .then(() => {
           setSuccessful(true);
         })
@@ -110,25 +111,28 @@ const Register = () => {
   };
 
   return (
-    <div className="col-md-12">
-      <div className="card card-container">
-        <img
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          alt="profile-img"
-          className="profile-img-card"
-        />
+    <MainLayout imagePath ="images/sampleImage3.jpg"title="회원가입"detail="해당 서비스를 이용하기 위해, 사용자 정보를 등록해주세요.">
+   <div className="col-md-12"      
+        style={{
+          minHeight: "70vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
+        <div  style={{float:"none", margin:"0 auto",minWidth:"506px"}}>
 
         <Form onSubmit={handleRegister} ref={form}>
           {!successful && (
             <div>
-              <div className="form-group">
+              <div className="form-group" >
                 <label htmlFor="username">이름</label>
                 <Input
                     type="text"
                     className="form-control"
                     name="username"
                     value={username}
-                    onChange={onChangeUserid}
+                    onChange={onChangeUsername}
                     validations={[required, vusername]}
                 />
               </div>
@@ -170,7 +174,8 @@ const Register = () => {
               </div>
 
               <div className="form-group">
-                <button className="btn btn-primary btn-block">회원가입</button>
+                <button className="btn btn-primary btn-block" st
+                style={{height: "50px"}}>회원가입</button>
               </div>
             </div>
           )}
@@ -186,6 +191,7 @@ const Register = () => {
         </Form>
       </div>
     </div>
+    </MainLayout>
   );
 };
 
