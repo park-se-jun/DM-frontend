@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import SymtomFillterComponent from "./SymtomFillterComponent";
+import SymptomFillterComponent from "./SymtomFillterComponent";
 
 function FilterContainer() {
   return (
     <div className="border-bottom pb-4">
       <div className="button_container ">
-        <SymtomFillterComponent key={"고열"} symtomName={"고열"}/>
-        <SymtomFillterComponent key={"복통"} symtomName={"복통"}/>
-        <SymtomFillterComponent key={"인후통"} symtomName={"인후통"}/>
+        <SymptomFillterComponent key={"고열"} symptomName={"고열"}/>
+        <SymptomFillterComponent key={"복통"} symptomName={"복통"}/>
+        <SymptomFillterComponent key={"인후통"} symptomName={"인후통"}/>
       </div>
       <div className="search_container">
         <button className="search_button">검색</button>
