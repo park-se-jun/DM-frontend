@@ -33,9 +33,6 @@ const Home = () => {
     >
       <div className="container">
         <Disease />
-        {/* <header className="jumbotron">
-          <h3>{content}</h3>
-        </header> */}
       </div>
     </MainLayout>
   );

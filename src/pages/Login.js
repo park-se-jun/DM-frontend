@@ -10,6 +10,8 @@ import { login } from "../actions/auth";
 import MainLayout from "../components/MainLayout";
 import { Typography } from "@material-ui/core";
 
+import LoginPageImage from "../resource/images/LoginPageImage.jpg";
+
 const required = (value) => {
   if (!value) {
     return (
@@ -70,7 +72,7 @@ const Login = (props) => {
 
   return (
     <MainLayout
-      imagePath="../resource/images/mainPageImage.jpg"
+      imagePath={LoginPageImage}
       title="로그인"
       detail="해당 서비스를 이용하기 위해, 사용자 정보를 입력해주세요."
     >
