@@ -41,9 +41,9 @@ function MainLayout({ imagePath, title, detail, children }) {
       }
       <Box
         className="mt-3"
-        style={{
-          minHeight: "70vh",
-        }}
+        // style={{
+        //   minHeight: "70vh",
+        // }}
       >
         {children}
       </Box>

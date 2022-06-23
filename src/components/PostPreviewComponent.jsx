@@ -10,7 +10,7 @@ function PostPreviewComponent({title, detail, id, comment, symtomArray ,author, 
     <Box className="border-bottom" component={Link} to={`community/:${id}`} style={{ textDecoration: 'none' ,color:"#000", display:"flex",flexDirection:"column",padding: "2rem 0.5rem"}}>
       <div style={{ display: "flex" ,justifyContent:"space-between", marginBottom: "10px"}}>
         <span className="title text-bold">
-          <h5>{title}</h5>
+          <h5 className="text-bold">{title}</h5>
         </span>
         <span style={{color: "#588D23"}}>{symtomTags}</span>
       </div>
