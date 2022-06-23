@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
-function SymtomFillterComponent({ symptomName, initialValue, clickable }) {
+import { useEffect } from "react";
+function SymtomFillterComponent({
+  symptomName,
+  initialValue,
+  clickable,
+  setParentStateCallback,
+}) {
   const [value, setValue] = useState(initialValue);
   const colorSet = [
     "#FFFFFF",
@@ -10,6 +16,15 @@ function SymtomFillterComponent({ symptomName, initialValue, clickable }) {
     "#96BF3F",
     "#79A321",
   ];
+  const prevValueRef = useRef();
+  useEffect(() => {
+    //버튼의 value가 변경되면
+    prevValueRef.current = value;
+
+      setParentStateCallback(symptomName, value); // 버튼의 value와 키를 부모로 보낸다
+
+
+  }, [value]);
 
   return (
     <>
@@ -17,9 +32,9 @@ function SymtomFillterComponent({ symptomName, initialValue, clickable }) {
         className="disease_button"
         style={{ backgroundColor: colorSet[value] }}
         onClick={() => {
-          if(clickable)
+          if (clickable) {
             setValue((prev) => (prev + 1) % 6);
-          else return;
+          } else return;
         }}
       >
         {symptomName}
