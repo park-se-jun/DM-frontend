@@ -5,7 +5,7 @@ import Header from "./Header";
 function MainLayout({ imagePath, title, detail, children }) {
   return (
     <>
-      <Header />
+      <Header color="white"/>
       {imagePath && (
         <Box
           class="Imagese"

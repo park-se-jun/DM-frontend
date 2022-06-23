@@ -7,7 +7,7 @@ import { clearMessage } from "../actions/message";
 import EventBus from "../common/EventBus";
 import { history } from "../helpers/history";
 
-function Header() {
+function Header({color}) {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
   const [showAdminBoard, setShowAdminBoard] = useState(false);
   const { user: currentUser } = useSelector((state) => state.auth);
@@ -41,7 +41,7 @@ function Header() {
   }, [currentUser, logOut]);
 
   return (
-    <AppBar style={{opacity:"0.9" ,background:"white", padding:"5px 0px"}}>
+    <AppBar style={{opacity:"0.9" ,background: color, padding:"5px 0px"}}>
       <Toolbar className="navbar navbar-expand navbar-default text-black">
         <Link to="/" className="navbar-brand">
           DM
@@ -76,7 +76,7 @@ function Header() {
           //   </li>
           // )
           }
-
+                
           {/* 관리자 nav-bar */}
           {showAdminBoard && (
                 <li className="nav-item">
