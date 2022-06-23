@@ -14,10 +14,7 @@ import BoardDisease from "./pages/BoardDisease";
 import BoardSymptom from "./pages/BoardSymptom";
 
 import BoardUser from "./pages/BoardUser";
-import BoardModerator from "./pages/BoardModerator";
-import BoardAdmin from "./pages/BoardAdmin";
-import BoardDisease from "./pages/BoardDisease";
-import BoardSymptom from "./pages/BoardSymptom";
+
 
 import { logout } from "./actions/auth";
 import { clearMessage } from "./actions/message";
