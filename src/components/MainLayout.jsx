@@ -20,16 +20,19 @@ function MainLayout({ imagePath, title, detail, children }) {
             justifyContent: "center",
           }}
         >
+          <div className="container">
           <Typography
-            style={{ marginLeft: "10vw", fontSize: "36px", fontWeight: 700 }}
+            style={{  fontSize: "36px", fontWeight: 700 }}
           >
             {title}
           </Typography>
           <Typography
-            style={{ marginLeft: "10vw", fontSize: "20px", fontWeight: 400 }}
+            style={{  fontSize: "20px", fontWeight: 400 }}
           >
             {detail}
           </Typography>
+          </div>
+          
         </Box>
       )}
       <Box
