@@ -87,7 +87,7 @@
     border: 1px solid #D4FFC0;
 }
 
-.post-detail .detail {
+.detail {
     text-align: start;
     display: -webkit-box;
     -webkit-box-orient: vertical;

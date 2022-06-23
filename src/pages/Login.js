@@ -10,7 +10,7 @@ import { login } from "../actions/auth";
 import MainLayout from "../components/MainLayout";
 import { Typography } from "@material-ui/core";
 
-import LoginPageImage from "../resource/images/LoginPageImage.jpg";
+import LoginPageImage from "../resource/images/loginPageImage.jpg";
 
 const required = (value) => {
   if (!value) {
