@@ -2,27 +2,27 @@ import http from "./http-common";
 
 class TutorialService {
   getAll(params) {
-    return http.get("/authority/user/tutorial", { params });
+    return http.get("/authority/all/tutorial", { params });
   }
 
   get(id) {
-    return http.get(`/authority/user/tutorial/${id}`);
+    return http.get(`/authority/all/tutorial/${id}`);
   }
 
   create(data) {
-    return http.post("/authority/user/tutorial", data);
+    return http.post("/authority/all/tutorial", data);
   }
 
   update(id, data) {
-    return http.put(`/authority/user/tutorial/${id}`, data);
+    return http.put(`/authority/all/tutorial/${id}`, data);
   }
 
   delete(id) {
-    return http.delete(`/authority/user/tutorial/${id}`);
+    return http.delete(`/authority/all/tutorial/${id}`);
   }
 
   deleteAll() {
-    return http.delete("/authority/user/tutorial");
+    return http.delete("/authority/all/tutorial");
   }
 }
 

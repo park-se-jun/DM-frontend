@@ -1,16 +1,56 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from "react";
+import PropTypes from "prop-types";
+import { useEffect } from "react";
+function SymtomFillterComponent({
+  symptomName,
+  initialValue,
+  clickable,
+  setParentStateCallback,
+}) {
+  const [value, setValue] = useState(initialValue);
+  const colorSet = [
+    "#FFFFFF",
+    "#EBFFC0",
+    "#DAFA97",
+    "#B8DF66",
+    "#96BF3F",
+    "#79A321",
+  ];
+  const prevValueRef = useRef();
+  useEffect(() => {
+    //버튼의 value가 변경되면
+    prevValueRef.current = value;
 
-function SymtomFillterComponent({symtomName}) {
-  const [value, setValue] = useState(0);
-    const colorSet = ["#FFFFFF","#EBFFC0","#DAFA97","#B8DF66","#96BF3F","#79A321"]
-    
+      setParentStateCallback(symptomName, value); // 버튼의 value와 키를 부모로 보낸다
+
+
+  }, [value]);
+
   return (
     <>
-    <button className='disease_button' style={{backgroundColor:colorSet[value]}} onClick={()=>{setValue((prev)=>(prev+1)%6)}}>{symtomName}</button>
+      <button
+        className="disease_button"
+        style={{ backgroundColor: colorSet[value] }}
+        onClick={() => {
+          if (clickable) {
+            setValue((prev) => (prev + 1) % 6);
+          } else return;
+        }}
+      >
+        {symptomName}
+      </button>
     </>
-
-    
-  )
+  );
 }
 
-export default SymtomFillterComponent
+export default SymtomFillterComponent;
+
+SymtomFillterComponent.propTypes = {
+  symptomName: PropTypes.string.isRequired,
+  initialValue: PropTypes.number,
+  clickable: PropTypes.bool,
+};
+SymtomFillterComponent.defaultProps = {
+  initialValue: 0,
+  clickable: true,
+};
