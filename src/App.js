@@ -12,6 +12,8 @@ import Profile from "./pages/Profile";
 import BoardUser from "./pages/BoardUser";
 import BoardModerator from "./pages/BoardModerator";
 import BoardAdmin from "./pages/BoardAdmin";
+import BoardDisease from "./pages/BoardDisease";
+import BoardSymptom from "./pages/BoardSymptom";
 
 import { logout } from "./actions/auth";
 import { clearMessage } from "./actions/message";
@@ -37,9 +39,11 @@ const App = () => {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
-            <Route path="/tutorial" component={BoardUser} />
+            {/* <Route path="/tutorial" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
-            <Route path="/admin" component={BoardAdmin} />
+            <Route path="/admin" component={BoardAdmin} /> */}
+            <Route path="/disease" component={BoardDisease} />
+            <Route path="/symptom" component={BoardSymptom} />
           </Switch>
         </div>
 

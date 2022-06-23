@@ -52,31 +52,47 @@ function Header() {
               질병확인
             </Link>
           </li>
-          <li className="nav-item">
-            <Link to="/community" className="nav-link">
-              커뮤니티
-            </Link>
-          </li>
-          {currentUser ? (
+
+          {currentUser && (
+            <li className="nav-item">
+              <Link to="/community" className="nav-link">
+                커뮤니티
+              </Link>
+            </li>
+          )}
+
+          {currentUser && (
             <li className="nav-item">
               <Link to={"/profile"} className="nav-link">
                 마이페이지
               </Link>
             </li>
-          ) : (
-            <li className="nav-item">
-              <Link to={"/login"} className="nav-link">
-                마이페이지
-              </Link>
-            </li>
-          )}
+            )
+          //  : (
+          //   <li className="nav-item">
+          //     <Link to={"/login"} className="nav-link">
+          //       로그인
+          //     </Link>
+          //   </li>
+          // )
+          }
+
+          {/* 관리자 nav-bar */}
           {showAdminBoard && (
-            <li className="nav-item">
-              <Link to="/admin" className="nav-link">
-                Admin Board
-              </Link>
-            </li>
-          )}
+                <li className="nav-item">
+                  <Link to={"/symptom"} className="nav-link">
+                    증상
+                  </Link>
+                </li>
+            )}
+
+            {showAdminBoard && (
+                <li className="nav-item">
+                  <Link to={"/disease"} className="nav-link">
+                    질병
+                  </Link>
+                </li>
+            )}
 
           {showModeratorBoard && (
             <li className="nav-item">
