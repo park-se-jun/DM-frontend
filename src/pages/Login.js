@@ -113,7 +113,7 @@ const Login = (props) => {
             </div>
 
             <div className="form-group">
-              <button className="btn btn-primary btn-block" disabled={loading} style={{height:"50px"}}>
+              <button className="btn btn-primary btn-block" disabled={loading} style={{height:"50px", marginTop: "70px"}}>
                 {loading && (
                   <span className="spinner-border spinner-border-sm"></span>
                 )}
