@@ -9,6 +9,8 @@ import { isEmail } from "validator";
 import { register } from "../actions/auth";
 import MainLayout from "../components/MainLayout";
 
+import SignInPageImage from "../resource/images/signInPageImage.jpg";
+
 const required = (value) => {
   if (!value) {
     return (
@@ -111,7 +113,7 @@ const Register = () => {
   };
 
   return (
-    <MainLayout imagePath ="images/sampleImage3.jpg"title="회원가입"detail="해당 서비스를 이용하기 위해, 사용자 정보를 등록해주세요.">
+    <MainLayout imagePath={SignInPageImage} title="회원가입"detail="해당 서비스를 이용하기 위해, 사용자 정보를 등록해주세요.">
    <div className="col-md-12"      
         style={{
           minHeight: "70vh",
