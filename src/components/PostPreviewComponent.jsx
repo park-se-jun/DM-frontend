@@ -2,6 +2,8 @@ import React from "react";
 import CommentIcon from "@material-ui/icons/Comment";
 import { Box } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
 function PostPreviewComponent({
   title,
   detail,
@@ -71,3 +73,7 @@ function PostPreviewComponent({
 }
 
 export default PostPreviewComponent;
+
+PostPreviewComponent.defaultProps={
+  predict : []
+}
