@@ -39,8 +39,8 @@ const Tutorial = (props) => {
         });
   };
 
-  useEffect(() => {
-    getTutorial(props.match.params.id);
+  useEffect(() => {//id 가 바뀔때마다
+    getTutorial(props.match.params.id);// 새로운 api call
     retrieveImages();
   }, [props.match.params.id]);
 
