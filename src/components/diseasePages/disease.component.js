@@ -218,7 +218,7 @@ const Disease = (props) => {
                         <td>{inputSymptom.symptomid}</td>
                         <td>{inputSymptom.symptomname}</td>
                         <td>{notZero(inputSymptom.weight)}</td>
-                        <td  className='flex-horiz' style={{boxSizing: "border-box", justifyContent: "center"}}>
+                        <td>
                             <button
                                 type="button"
                                 onClick={(event) => makeSymptoms(event)}
@@ -265,7 +265,7 @@ const Disease = (props) => {
                             <td>{row['symptomid']}</td>
                             <td>{row['symptomname']}</td>
                             <td>{row['weight']}</td>
-                            <td  className='flex-horiz' style={{boxSizing: "border-box", justifyContent: "center"}}>
+                            <td className='flex-horiz' style={{boxSizing: "border-box", justifyContent: "center"}}>
                                 <button
                                     type="button"
                                     onClick={(event) => delSymptom(event, row.symptomid)}

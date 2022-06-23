@@ -7,7 +7,8 @@ const TutorialAdd = () => {
   const initialTutorialState = {
     id: null,
     title: "",
-    description: ""
+    description: "",
+    img: ""
   };
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
@@ -33,7 +34,8 @@ const TutorialAdd = () => {
     var data = {
       id: tutorial.id,
       title: tutorial.title,
-      description: tutorial.description
+      description: tutorial.description,
+      img: image.name
     };
 
     tutorialService.create(data)
@@ -41,8 +43,8 @@ const TutorialAdd = () => {
           setTutorial({
             id: response.data.id,
             title: response.data.title,
-            img: response.image.name,
-            description: response.data.description
+            description: response.data.description,
+            img: response.data.img
           });
           setSubmitted(true);
           // console.log(response.data);
@@ -112,7 +114,7 @@ const TutorialAdd = () => {
                       type='file'
                       id='file-upload'
                       style={{display:'none'}}
-                      name={tutorial.id+'.png'}
+                      name={'png'}
                       accept='image/png'
                       onChange={onChange}/>
                   <label

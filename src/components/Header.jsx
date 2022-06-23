@@ -96,16 +96,16 @@ function Header({color}) {
 
           {showModeratorBoard && (
             <li className="nav-item">
-              <Link to={"/mod"} className="nav-link">
-                Moderator Board
+              <Link to={"/symptom"} className="nav-link">
+                증상
               </Link>
             </li>
           )}
 
-          {currentUser && (
+          {showAdminBoard && (
             <li className="nav-item">
-              <Link to={"/tutorial"} className="nav-link">
-                User
+              <Link to={"/disease"} className="nav-link">
+                질병
               </Link>
             </li>
           )}

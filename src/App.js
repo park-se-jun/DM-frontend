@@ -9,6 +9,10 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+
+import BoardDisease from "./pages/BoardDisease";
+import BoardSymptom from "./pages/BoardSymptom";
+
 import BoardUser from "./pages/BoardUser";
 import BoardModerator from "./pages/BoardModerator";
 import BoardAdmin from "./pages/BoardAdmin";
@@ -26,7 +30,7 @@ import community from "./pages/community";
 import Post from "./pages/Post";
 
 const App = () => {
-  
+
   return (
     <Router history={history}>
       <div>
@@ -39,11 +43,10 @@ const App = () => {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
-            {/* <Route path="/tutorial" component={BoardUser} />
-            <Route path="/mod" component={BoardModerator} />
-            <Route path="/admin" component={BoardAdmin} /> */}
             <Route path="/disease" component={BoardDisease} />
             <Route path="/symptom" component={BoardSymptom} />
+
+            <Route path="/tutorial" component={BoardUser} />
           </Switch>
         </div>
 

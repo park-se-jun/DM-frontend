@@ -57,24 +57,21 @@ const TutorialList = (props) => {
         .catch((e) => {
           console.log(e);
         });
-  };
 
-  // eslint-disable-next-line
-  useEffect(() => {
-    retrieveTutorials();
-    retrieveImages();
-  }, [page, pageSize]);
-
-  const retrieveImages = () => {
     ImageService.getFiles()
         .then(response => {
           setImages(response.data);
-          // console.log(response.data);
+          console.log(response.data);
         })
         .catch(e => {
           console.log(e);
         });
   };
+
+  // eslint-disable-next-line
+  useEffect(() => {
+    retrieveTutorials();
+  }, [page, pageSize]);
 
   const searchRequest = () => {
     setPage(1);
@@ -87,9 +84,9 @@ const TutorialList = (props) => {
     setSearchWord(searchWord);
   };
 
-  const onKeyPress = (e) => {
-    if(e.key === "Enter") searchRequest();
-  };
+  // const onKeyPress = (e) => {
+  //   if(e.key === "Enter") searchRequest();
+  // };
 
   const openTutorial = (rowIndex) => {
     const id = tutorialsRef.current[rowIndex].id;
@@ -110,8 +107,9 @@ const TutorialList = (props) => {
     setPage(1);
   };
 
-  const imageView = (imagename) => {
-    const image = imagename;
+  const imageView = (idx) => {
+    const image = idx;
+    console.log(image)
     let name = "";
     let url = "";
     let exist = false;
@@ -142,18 +140,6 @@ const TutorialList = (props) => {
   const columns = useMemo(
       () => [
         {
-          Header: "이미지",
-          accessor: "",
-          Cell: (props) => {
-            const rowIdx = props.row.img;
-            return (
-                <div>
-                  {imageView(rowIdx)}
-                </div>
-            );
-          },
-        },
-        {
           Header: "제목",
           accessor: "title",
         },
@@ -162,7 +148,7 @@ const TutorialList = (props) => {
           accessor: "description",
         },
         {
-          Header: " ",
+          Header: "관리",
           accessor: "actions",
           Cell: (props) => {
             const rowIdx = props.row.id;
@@ -172,7 +158,7 @@ const TutorialList = (props) => {
                       type="button"
                       className="editBtnStyle"
                       onClick={() => openTutorial(rowIdx)}>
-                    관리
+                    >>
                   </button>
                 </div>
             );
@@ -211,15 +197,15 @@ const TutorialList = (props) => {
             <div className="input-group">
               <table width="100%">
                 <tbody>
-                  <tr>
-                    <td width="40%">
+                <tr>
+                  <td width="25%">
+                    <div className="input-group">
                       <input
                           type="text"
                           className="form-control"
-                          placeholder="제목"
+                          placeholder=""
                           value={searchWord}
                           onChange={onChangeSearchWord}
-                          onKeyPress={onKeyPress}
                       />
                       <div className="input-group-append">
                         <button
@@ -230,34 +216,46 @@ const TutorialList = (props) => {
                           검색
                         </button>
                       </div>
-                    </td>
-                    <td width="10%"/>
-                    <td width={"30%"} className={"center-align"}>
-                      <Pagination
-                          classes={{ul: classes.ul}}
-                          count={count}
-                          page={page}
-                          siblingCount={1}
-                          boundaryCount={1}
-                          variant="outlined"
-                          shape="rounded"
-                          onChange={handlePageChange}
-                      />
-                    </td>
-                    <td width="10%"/>
-                    <td width="10%">
-                      <select
-                          className={"form-select table input-group"}
-                          onChange={handlePageSizeChange}
-                          value={pageSize}>
-                        {pageSizes.map((size) => (
-                            <option key={size} value={size}>
-                              {size}
-                            </option>
-                        ))}
-                      </select>
-                    </td>
-                  </tr>
+                    </div>
+                  </td>
+                  <td width="5%"/>
+                  <td width={"40%"} className={"center-align"}>
+                    <Pagination
+                        classes={{ul: classes.ul}}
+                        count={count}
+                        page={page}
+                        siblingCount={1}
+                        boundaryCount={1}
+                        variant="outlined"
+                        shape="rounded"
+                        onChange={handlePageChange}
+                    />
+                  </td>
+                  <td width="5%"/>
+                  <td width="5%">
+                    <h6>{totalItems}</h6>
+                  </td>
+                  <td width="5%">
+                    <select
+                        className={"form-select table input-group"}
+                        onChange={handlePageSizeChange}
+                        value={pageSize}>
+                      {pageSizes.map((size) => (
+                          <option key={size} value={size}>
+                            {size}
+                          </option>
+                      ))}
+                    </select>
+                  </td>
+                  <td width="5%"/>
+                  <td width="5%">
+                    <button
+                        type="button"
+                        className="addBtnStyle" onClick={addTutorial}>
+                      추가
+                    </button>
+                  </td>
+                </tr>
                 </tbody>
               </table>
             </div>
@@ -268,16 +266,10 @@ const TutorialList = (props) => {
                 {...getTableProps()}
             >
               <thead>
-              <tr>
-                <th width="15%">제목</th>
-                <th width="65%">설명</th>
-                <th width="20%" colSpan="1">
-                  <button
-                      type="button"
-                      className="addBtnStyle" onClick={addTutorial}>
-                    추가
-                  </button>
-                </th>
+              <tr className={"nonBorder"}>
+                <td width="35%" className={"nonBorder"}/>
+                <th width="55%" className={"nonBorder"}/>
+                <td width="10%" className={"nonBorder"}/>
               </tr>
               {headerGroups.map((headerGroup) => (
                   <tr {...headerGroup.getHeaderGroupProps()}>

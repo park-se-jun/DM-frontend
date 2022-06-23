@@ -236,7 +236,7 @@ const DiseaseAdd = () => {
     });
     if(submitSymptoms.length === 0) return <i>증상을 추가해주세요.</i>;
     else return(
-        <table className="table table-bordered" >
+        <table className="table table-bordered">
           <thead>
           <tr>
             <th width={"35%"}>증상코드</th>
