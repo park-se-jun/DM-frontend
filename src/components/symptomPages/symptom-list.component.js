@@ -193,7 +193,7 @@ const SymptomList = (props) => {
                   </td>
                   <td width="5%"/>
                   <td width="5%">
-                    <h6>{totalItems}</h6>
+                    <h6 style={{margin: "0px", fontSize: "20px"}}>{totalItems}</h6>
                   </td>
                   <td width="5%">
                     <select
