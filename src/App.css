@@ -59,6 +59,10 @@ label {
 
 /* 추가 */
 /* 못생긴 기본 속성 삭제 */
+* {
+  font-family: 'Nanum Gothic Coding', sans-serif !important;
+}
+
 button {
   outline: none;
   border: none;
@@ -119,8 +123,21 @@ a:hover {
   font-size: 15px!important;
 }
 
+.body-margin {
+  margin: 100px 0px; 
+  height: fit-content;
+}
+
 input[type="text"]:focus,
 input[type="password"]:focus {
   border: 1px solid #69A155;
   box-shadow: none;
+}
+
+.detail {
+  text-align: start;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
