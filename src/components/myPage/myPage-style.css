@@ -1,0 +1,91 @@
+/* MyInfoTapComponent */
+.info-btn-wrap {
+	height: fit-content;
+	border-top: 1px solid #BDBDBD;
+	border-bottom: 1px solid #BDBDBD;
+	margin-bottom: 40px;
+}
+
+.info-btn-wrap .info-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 250px;
+	height: 50px;
+}
+
+.info-btn-wrap .info-item:hover {
+	cursor: pointer;
+}
+
+.info-btn-wrap .info-item.click {
+	font-weight: bold;
+	background-color: #D4FFC0;
+}
+
+/* MyInfoComponent */
+.title-size {
+	font-size: 20px;
+}
+
+.personal-info-wrap {
+	margin-bottom: 40px;
+}
+.personal-info-wrap li:nth-child(1) {
+	margin-bottom: 20px;
+}
+
+.text {
+	width: 100px;
+}
+
+.text strong {
+	color: #FF0E0E;
+}
+
+.personal-info-wrap li,
+.additional-info-wrap li {
+	margin-bottom: 20px;
+}
+
+#readonly-input {
+	width: 400px;
+}
+
+#readonly-input:disabled {
+	background-color: #ffffff !important;
+}
+
+/* MyPostList */
+.my-list {
+	width: fit-content;
+	flex-wrap: wrap;
+}
+
+/* MyPostComponent */
+.post-item {
+	width: 45%;
+	padding: 20px;
+	margin: 10px;
+	border: 1px solid #BDBDBD;
+	border-radius: 10px;
+}
+
+.title {
+	font-size: 20px;
+}
+
+.symptom-list {
+	margin-bottom: 15px;
+}
+
+.symptom-tag {
+	color: #588D23;
+}
+
+.sub-post-info {
+	margin-top: 15px;
+	padding: 0px 10px;
+}
+
