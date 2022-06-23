@@ -68,7 +68,7 @@ const SymptomAdd = () => {
   };
 
   return (
-      <div className="submit-form">
+      <div className="submit-form" style={{marginTop: "120px", marginBottom: "120px"}}>
         {submitted ? (
             <div>
               <h4>You submitted successfully!</h4>
@@ -78,35 +78,37 @@ const SymptomAdd = () => {
             </div>
         ) : (
             <div className={"edit-form"}>
-              <h5>등록</h5>
+              <h5 className='text-bold'>등록</h5>
               <hr/>
-              <form>
+              <form style={{marginTop: "40px"}}>
                 <div className="form-group">
                   <label htmlFor="symptomid">증상코드</label>
                   <input
                       type="text"
-                      className="form-control"
+                      className="form-control input-size"
                       id="symptomid"
                       name="symptomid"
                       placeholder="S0000"
                       value={symptom.symptomid}
                       onChange={handleInputChange}
+                      style={{marginBottom: "30px"}}
                   />
                 </div>
                 <div className="form-group">
                   <label htmlFor="symptomname">증상이름</label>
                   <input
                       type="text"
-                      className="form-control"
+                      className="form-control  input-size"
                       id="symptomname"
                       name="symptomname"
                       value={symptom.symptomname}
                       onChange={handleInputChange}
+                      style={{marginBottom: "40px"}}
                   />
                 </div>
               </form>
               <hr/>
-              <button onClick={saveSymptom} className="addBtnStyle">
+              <button onClick={saveSymptom} className="addBtnStyle  input-size"  style={{padding: "10px 20px"}}>
                 등록
               </button>
             </div>

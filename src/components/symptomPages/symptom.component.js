@@ -67,33 +67,35 @@ const Symptom = (props) => {
   };
 
   return (
-      <div>
+      <div style={{marginTop: "120px"}}>
         {currentSymptom ? (
-            <div className="edit-form">
-              <h5>정보 수정</h5>
+            <div className="edit-form"  style={{marginTop: "120px", marginBottom: "120px"}}>
+              <h5 className='text-bold'>정보 수정</h5>
               <hr/>
-              <form>
+              <form style={{marginTop: "40px", marginBottom: "40px"}}>
                 <div className="form-group">
                   <label htmlFor="symptomid">증상코드</label>
                   <input
                       type="text"
-                      className="form-control"
+                      className="form-control input-size"
                       id="symptomid"
                       name="symptomid"
                       placeholder="S0000"
                       value={currentSymptom.symptomid}
                       onChange={handleInputChange}
+                      style={{marginBottom: "30px"}}
                   />
                 </div>
                 <div className="form-group">
                   <label htmlFor="symptomname">증상명</label>
                   <input
                       type="text"
-                      className="form-control"
+                      className="form-control input-size"
                       id="symptomname"
                       name="symptomname"
                       value={currentSymptom.symptomname}
                       onChange={handleInputChange}
+                      style={{marginBottom: "30px"}}
                   />
                 </div>
               </form>
@@ -104,8 +106,9 @@ const Symptom = (props) => {
                   <td className={"left-align"}>
                     <button
                         type="submit"
-                        className="addBtnStyle"
+                        className="addBtnStyle   input-size"
                         onClick={updateContent}
+                        style={{padding: "10px 20px"}}
                     >
                       수정
                     </button>
@@ -113,12 +116,14 @@ const Symptom = (props) => {
                     <button
                         type="button"
                         onClick={moveUp}
-                        className="addBtnStyle">
+                        className="addBtnStyle   input-size"
+                        style={{padding: "10px 20px"}}>
                       목록
                     </button>
                   </td>
                   <td className={"right-align"}>
-                    <button className="delBtnStyle" onClick={removeSymptom}>
+                    <button className="delBtnStyle   input-size" onClick={removeSymptom}
+                    style={{padding: "10px 20px"}}>
                       삭제
                     </button>
                   </td>

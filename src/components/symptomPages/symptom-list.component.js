@@ -117,7 +117,6 @@ const SymptomList = (props) => {
                       type="button"
                       className="editBtnStyle"
                       onClick={() => openSymptom(rowIdx)}>
-                    >>
                   </button>
                 </div>
             );
@@ -150,27 +149,29 @@ const SymptomList = (props) => {
   const classes = useStyles();
 
   return (
-      <div>
+      <div style={{marginTop: "120px", marginBottom: "120px"}}>
         <div className="card">
           <div style={{width: "100%"}}>{/*className="col-md-8"*/}
             <div className="input-group">
-              <table width="100%">
+              <table className='nonBorder' width="100%" >
                 <tbody>
                 <tr>
                   <td width="25%">
-                    <div className="input-group">
+                    <div className="input-group flex-horiz" style={{alignItems: "center"}}>
                       <input
                           type="text"
-                          className="form-control"
+                          className="form-control  input-size"
                           placeholder=""
                           value={searchWord}
                           onChange={onChangeSearchWord}
+                          style={{height: "40px"}}
                       />
                       <div className="input-group-append">
                         <button
-                            className="btn btn-outline-secondary form-control"
+                            className="btn btn-outline-secondary form-control disease-btn"
                             type="button"
                             onClick={searchRequest}
+                            style={{height: "40px", fontSize: "15px"}}
                         >
                           검색
                         </button>
@@ -178,7 +179,7 @@ const SymptomList = (props) => {
                     </div>
                   </td>
                   <td width="5%"/>
-                  <td width={"40%"} className={"center-align"}>
+                  <td width={"40%"} className={"center-align flex-horiz"} style={{justifyContent: "center"}}>
                     <Pagination
                         classes={{ul: classes.ul}}
                         count={count}
@@ -198,7 +199,8 @@ const SymptomList = (props) => {
                     <select
                         className={"form-select table input-group"}
                         onChange={handlePageSizeChange}
-                        value={pageSize}>
+                        value={pageSize}
+                        style={{margin: "0px"}}>
                       {pageSizes.map((size) => (
                           <option key={size} value={size}>
                             {size}
@@ -210,7 +212,8 @@ const SymptomList = (props) => {
                   <td width="5%">
                     <button
                         type="button"
-                        className="addBtnStyle" onClick={addSymptom}>
+                        className="addBtnStyle" onClick={addSymptom}
+                        style={{width: "100%", padding: "10px 0px", fontSize: "15px"}}>
                       추가
                     </button>
                   </td>
@@ -223,6 +226,7 @@ const SymptomList = (props) => {
             <table
                 className="table table-bordered"
                 {...getTableProps()}
+                style={{border: "none"}}
             >
               <thead>
               <tr className={"nonBorder"}>
