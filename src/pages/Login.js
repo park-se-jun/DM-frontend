@@ -70,7 +70,7 @@ const Login = (props) => {
 
   return (
     <MainLayout
-      imagePath="images/sampleImage2.jpg"
+      imagePath="../resource/images/mainPageImage.jpg"
       title="로그인"
       detail="해당 서비스를 이용하기 위해, 사용자 정보를 입력해주세요."
     >

@@ -10,7 +10,7 @@ function MainLayout({ imagePath, title, detail, children }) {
         <Box
           class="Imagese"
           style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url("${imagePath}")`,
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url(${imagePath})`,
             overflow: "hidden",
             width: "100%",
             // 높이 수정(사진 사이즈는 vh에 따라 변경X)

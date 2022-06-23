@@ -372,66 +372,74 @@ return (
         <button className="search_button">검색</button>
       </div> */}
       <FilterContainer />
-      <PostPreviewComponent
-        title={"작성한 타이틀"}
-        detail={
-          '"Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex'
-        }
-        symtomArray={[
-          { name: "두통", value: "5" },
-          { name: "복통", value: "5" },
-          { name: "인후통", value: "5" },
-        ]}
-        commentNumber={20} author={"박세준"} date = {"오늘"}
-      />
-      <PostPreviewComponent
-        title={"작성한 타이틀"}
-        detail={
-          '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex'
-        }
-        symtomArray={[
-          { name: "두통", value: "5" },
-          { name: "복통", value: "5" },
-          { name: "인후통", value: "5" },
-        ]}
-        commentNumber={20} author={"박세준"} date = {"오늘"}
-      />
-      <PostPreviewComponent
-        title={"작성한 타이틀"}
-        detail={
-          '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex'
-        }
-        symtomArray={[
-          { name: "두통", value: "5" },
-          { name: "복통", value: "5" },
-          { name: "인후통", value: "5" },
-        ]}
-        commentNumber={20} author={"박세준"} date = {"오늘"}
-      />
-      <PostPreviewComponent
-        title={"작성한 타이틀"}
-        detail={
-          '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex'
-        }
-        symtomArray={[
-          { name: "두통", value: "5" },
-          { name: "복통", value: "5" },
-          { name: "인후통", value: "5" },
-        ]}
-        commentNumber={20} author={"박세준"} date = {"오늘"}
-      />
-      <PostPreviewComponent
-        title={"작성한 타이틀"}
-        detail={
-          '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitaniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex'
-        }
-        symtomArray={[
-          { name: "두통", value: "5" },
-          { name: "복통", value: "5" },
-          { name: "인후통", value: "5" },
-        ]}
-        commentNumber={20} author={"박세준"} date = {"오늘"}
-      />
+      <div className='post-preview-wrap flex-horiz' style={{alignItems: "start"}}>
+        <ul className='result-wrap'>
+          <li className='result-tap click'>①</li>
+          <li className='result-tap'>②</li>
+        </ul>
+        <div>
+          <PostPreviewComponent
+            title={"작성한 타이틀"}
+            detail={
+              '"Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex'
+            }
+            symtomArray={[
+              { name: "두통", value: "5" },
+              { name: "복통", value: "5" },
+              { name: "인후통", value: "5" },
+            ]}
+            commentNumber={20} author={"박세준"} date = {"오늘"}
+          />
+          <PostPreviewComponent
+            title={"작성한 타이틀"}
+            detail={
+              '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex'
+            }
+            symtomArray={[
+              { name: "두통", value: "5" },
+              { name: "복통", value: "5" },
+              { name: "인후통", value: "5" },
+            ]}
+            commentNumber={20} author={"박세준"} date = {"오늘"}
+          />
+          <PostPreviewComponent
+            title={"작성한 타이틀"}
+            detail={
+              '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex'
+            }
+            symtomArray={[
+              { name: "두통", value: "5" },
+              { name: "복통", value: "5" },
+              { name: "인후통", value: "5" },
+            ]}
+            commentNumber={20} author={"박세준"} date = {"오늘"}
+          />
+          <PostPreviewComponent
+            title={"작성한 타이틀"}
+            detail={
+              '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex'
+            }
+            symtomArray={[
+              { name: "두통", value: "5" },
+              { name: "복통", value: "5" },
+              { name: "인후통", value: "5" },
+            ]}
+            commentNumber={20} author={"박세준"} date = {"오늘"}
+          />
+          <PostPreviewComponent
+            title={"작성한 타이틀"}
+            detail={
+              '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitaniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex'
+            }
+            symtomArray={[
+              { name: "두통", value: "5" },
+              { name: "복통", value: "5" },
+              { name: "인후통", value: "5" },
+            ]}
+            commentNumber={20} author={"박세준"} date = {"오늘"}
+          />
+        </div>
+      </div>
     </div>
   );
 }
