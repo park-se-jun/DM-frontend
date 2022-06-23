@@ -35,6 +35,9 @@ function MainLayout({ imagePath, title, detail, children }) {
           
         </Box>
       )}
+      {!imagePath&&(<Box style={{height:"10vh",width:"100vw"}}/>)
+
+      }
       <Box
         className="mt-3"
         style={{
