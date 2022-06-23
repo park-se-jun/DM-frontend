@@ -156,7 +156,6 @@ const DiseasesList = (props) => {
                       type="button"
                       className="editBtnStyle"
                       onClick={() => openDisease(rowIdx)}>
-                    >>
                   </button>
                 </div>
             );
@@ -189,7 +188,7 @@ const DiseasesList = (props) => {
   const classes = useStyles();
 
   return (
-      <div>
+      <div style={{marginTop: "120px", marginBottom: "120px"}}>
         <div className="card">
           <div style={{width: "100%"}}>{/*className="col-md-8"*/}
             <div className="input-group">
@@ -197,19 +196,21 @@ const DiseasesList = (props) => {
                 <tbody>
                 <tr>
                   <td width="25%">
-                    <div className="input-group">
+                    <div className="input-group flex-horiz" style={{alignItems: "center"}}>
                       <input
                           type="text"
-                          className="form-control"
+                          className="form-control input-size"
                           placeholder=""
                           value={searchWord}
                           onChange={onChangeSearchWord}
+                          style={{height: "40px"}}
                       />
                       <div className="input-group-append">
                         <button
-                            className="btn btn-outline-secondary form-control"
+                            className="btn btn-outline-secondary form-control disease-btn"
                             type="button"
                             onClick={searchRequest}
+                            style={{height: "40px", fontSize: "15px"}}
                         >
                           검색
                         </button>
@@ -217,7 +218,7 @@ const DiseasesList = (props) => {
                     </div>
                   </td>
                   <td width="5%"/>
-                  <td width={"40%"} className={"center-align"}>
+                  <td width={"40%"} className={"center-align flex-horiz"} style={{justifyContent: "center"}}>
                     <Pagination
                         classes={{ul: classes.ul}}
                         count={count}
@@ -230,14 +231,15 @@ const DiseasesList = (props) => {
                     />
                   </td>
                   <td width="5%"/>
-                  <td width="5%">
-                    <h6>{totalItems}</h6>
+                  <td width="5%" style={{textAlign: "center"}}>
+                    <h6 style={{margin: "0px", fontSize: "20px"}}>{totalItems}</h6>
                   </td>
                   <td width="5%">
                     <select
                         className={"form-select table input-group"}
                         onChange={handlePageSizeChange}
-                        value={pageSize}>
+                        value={pageSize}
+                        style={{margin: "0px"}}>
                       {pageSizes.map((size) => (
                           <option key={size} value={size}>
                             {size}
@@ -249,7 +251,8 @@ const DiseasesList = (props) => {
                   <td width="5%">
                     <button
                         type="button"
-                        className="addBtnStyle" onClick={addDisease}>
+                        className="addBtnStyle" onClick={addDisease}
+                        style={{width: "100%", padding: "10px 0px", fontSize: "15px"}}>
                       추가
                     </button>
                   </td>
@@ -262,9 +265,10 @@ const DiseasesList = (props) => {
             <table
                 className="table table-bordered"
                 {...getTableProps()}
+                style={{border: "none"}}
             >
               <thead>
-              <tr className={"nonBorder"}>
+              <tr className="nonBorder">
                 <td width="30%" className={"nonBorder"}/>
                 <th width="30%" className={"nonBorder"}/>
                 <td width="15%" className={"nonBorder"}/>
@@ -274,7 +278,7 @@ const DiseasesList = (props) => {
               {headerGroups.map((headerGroup) => (
                   <tr {...headerGroup.getHeaderGroupProps()}>
                     {headerGroup.headers.map((column) => (
-                        <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                        <th className='table-title-size' {...column.getHeaderProps(column.getSortByToggleProps())}>
                           {column.render("Header")}
                         </th>
                     ))}

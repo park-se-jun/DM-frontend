@@ -205,7 +205,7 @@ const DiseaseAdd = () => {
                 <td>{inputSymptom.symptomid}</td>
                 <td>{inputSymptom.symptomname}</td>
                 <td>{notZero(inputSymptom.weight)}</td>
-                <td>
+                <td className='flex-horiz' style={{boxSizing: "border-box", justifyContent: "center"}}>
                   <button
                       type="button"
                       onClick={(event) => makeSymptoms(event)}
@@ -236,7 +236,7 @@ const DiseaseAdd = () => {
     });
     if(submitSymptoms.length === 0) return <i>증상을 추가해주세요.</i>;
     else return(
-        <table className="table table-bordered">
+        <table className="table table-bordered" >
           <thead>
           <tr>
             <th width={"35%"}>증상코드</th>
@@ -252,7 +252,7 @@ const DiseaseAdd = () => {
                     <td>{row['symptomid']}</td>
                     <td>{row['symptomname']}</td>
                     <td>{row['weight']}</td>
-                    <td>
+                    <td className='flex-horiz' style={{justifyContent: "center"}}>
                       <button
                           type="button"
                           onClick={(event) => delSymptom(event, row.symptomid)}
@@ -269,7 +269,7 @@ const DiseaseAdd = () => {
   };
 
   return (
-      <div className="submit-form">
+      <div className="submit-form" style={{marginTop: "120px", marginBottom: "120px"}}>
         {submitted ? (
             <div>
               <h4>You submitted successfully!</h4>
@@ -279,19 +279,20 @@ const DiseaseAdd = () => {
             </div>
         ) : (
             <div className={"edit-form"}>
-              <h5>등록</h5>
+              <h5 className='text-bold'>등록</h5>
               <hr/>
-              <form>
+              <form style={{marginTop: "40px"}}>
                 <div className="form-group">
                   <label htmlFor="diseaseid">질병코드</label>
                   <input
                       type="text"
-                      className="form-control"
+                      className="form-control input-size"
                       id="diseaseid"
                       name="diseaseid"
                       placeholder="D0000"
                       value={disease.diseaseid}
                       onChange={handleInputChange}
+                      style={{marginBottom: "30px"}}
                   />
                 </div>
 
@@ -299,22 +300,24 @@ const DiseaseAdd = () => {
                   <label htmlFor="diseasename">질병명</label>
                   <input
                       type="text"
-                      className="form-control"
+                      className="form-control input-size"
                       id="diseasename"
                       name="diseasename"
                       value={disease.diseasename}
                       onChange={handleInputChange}
+                      style={{marginBottom: "30px"}}
                   />
                 </div>
 
-                <div className="form-group">
+                <div className="form-group " style={{marginBottom: "40px"}}>
                   <label htmlFor="Search">증상</label>
                   <input
                       type="text"
-                      className={"form-control"}
+                      className={"form-control input-size"}
                       value={search}
                       placeholder="검색해주세요."
                       onChange={onChangeSearch}
+                      style={{marginBottom: "20px"}}
                   />
                   {selectSymptomBox()}
                   {searchResultBox()}
@@ -324,7 +327,7 @@ const DiseaseAdd = () => {
               </form>
               <hr/>
               <button onClick={(event) => saveDisease(event)}
-                      className="addBtnStyle">
+                      className="addBtnStyle input-size" style={{padding: "10px 20px"}}>
                 등록
               </button>
             </div>

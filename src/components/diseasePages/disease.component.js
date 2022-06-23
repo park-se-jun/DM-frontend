@@ -218,7 +218,7 @@ const Disease = (props) => {
                         <td>{inputSymptom.symptomid}</td>
                         <td>{inputSymptom.symptomname}</td>
                         <td>{notZero(inputSymptom.weight)}</td>
-                        <td>
+                        <td  className='flex-horiz' style={{boxSizing: "border-box", justifyContent: "center"}}>
                             <button
                                 type="button"
                                 onClick={(event) => makeSymptoms(event)}
@@ -265,7 +265,7 @@ const Disease = (props) => {
                             <td>{row['symptomid']}</td>
                             <td>{row['symptomname']}</td>
                             <td>{row['weight']}</td>
-                            <td>
+                            <td  className='flex-horiz' style={{boxSizing: "border-box", justifyContent: "center"}}>
                                 <button
                                     type="button"
                                     onClick={(event) => delSymptom(event, row.symptomid)}
@@ -283,73 +283,78 @@ const Disease = (props) => {
 
 
     return (
-      <div>
+        <div style={{marginTop: "120px"}}>
         {currentDisease ? (
-            <div className="edit-form">
-              <h5>정보 수정</h5>
-              <hr/>
-              <form>
-                <div className="form-group">
-                  <label htmlFor="diseaseid">질병코드</label>
-                  <input
-                      type="text"
-                      className="form-control"
-                      id="diseaseid"
-                      name="diseaseid"
-                      placeholder="D0000"
-                      value={currentDisease.diseaseid}
-                      onChange={handleInputChange}
-                  />
+            <div className="edit-form" style={{marginTop: "120px", marginBottom: "120px"}}>
+                <h5 className='text-bold' >정보 수정</h5>
+                <hr/>
+                <form style={{marginTop: "40px", marginBottom: "40px"}}>
+                    <div className="form-group">
+                    <label htmlFor="diseaseid">질병코드</label>
+                    <input
+                        type="text"
+                        className="form-control input-size"
+                        id="diseaseid"
+                        name="diseaseid"
+                        placeholder="D0000"
+                        value={currentDisease.diseaseid}
+                        onChange={handleInputChange}
+                        style={{marginBottom: "30px"}}
+                    />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="diseasename">질병명</label>
-                  <input
-                      type="text"
-                      className="form-control"
-                      id="diseasename"
-                      name="diseasename"
-                      value={currentDisease.diseasename}
-                      onChange={handleInputChange}
-                  />
+                    <label htmlFor="diseasename">질병명</label>
+                    <input
+                        type="text"
+                        className="form-control input-size"
+                        id="diseasename"
+                        name="diseasename"
+                        value={currentDisease.diseasename}
+                        onChange={handleInputChange}
+                        style={{marginBottom: "30px"}}
+                    />
                 </div>
 
-                  <div className="form-group">
-                      <label htmlFor="Search">증상</label>
-                      <input
-                          type="text"
-                          className={"form-control"}
-                          value={search}
-                          placeholder="검색해주세요."
-                          onChange={onChangeSearch}
-                      />
-                      {selectSymptomBox()}
-                      {searchResultBox()}
-                      {symptomsTable()}
-                  </div>
+                    <div className="form-group"  style={{marginTop: "40px"}}>
+                        <label htmlFor="Search">증상</label>
+                        <input
+                            type="text"
+                            className={"form-control input-size"}
+                            value={search}
+                            placeholder="검색해주세요."
+                            onChange={onChangeSearch}
+                            style={{marginBottom: "20px"}}
+                        />
+                        {selectSymptomBox()}
+                        {searchResultBox()}
+                        {symptomsTable()}
+                    </div>
 
-              </form>
-              <hr/>
-              <table width={"100%"}>
+            </form>
+            <hr/>
+            <table width={"100%"}>
                 <tbody>
                 <tr>
-                  <td className={"left-align"}>
+                    <td className={"left-align"}>
                     <button
                         type="submit"
-                        className="addBtnStyle"
+                        className="addBtnStyle  input-size"
                         onClick={updateContent}
+                        style={{padding: "10px 20px"}}
                     >
-                      수정
+                        수정
                     </button>
                     &nbsp;&nbsp;
                     <button
                         type="button"
                         onClick={moveUp}
-                        className="addBtnStyle">
-                      목록
+                        className="addBtnStyle  input-size"
+                        style={{padding: "10px 20px"}}>
+                        목록
                     </button>
                   </td>
                   <td className={"right-align"}>
-                    <button className="delBtnStyle" onClick={removeDisease}>
+                    <button className="delBtnStyle  input-size" onClick={removeDisease} style={{padding: "10px 20px"}}>
                       삭제
                     </button>
                   </td>
