@@ -44,12 +44,12 @@ function Header({color}) {
     <AppBar style={{opacity:"0.9" ,background: color, padding:"5px 0px"}}>
       <Toolbar className="navbar navbar-expand navbar-default text-black">
         <Link to="/" className="navbar-brand">
-          DM
+          DM LOGO
         </Link>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
-            <Link to="/home" className="nav-link">
-              질병확인
+            <Link to="/" className="nav-link">
+              질병 확인
             </Link>
           </li>
 
@@ -68,13 +68,6 @@ function Header({color}) {
               </Link>
             </li>
             )
-          //  : (
-          //   <li className="nav-item">
-          //     <Link to={"/login"} className="nav-link">
-          //       로그인
-          //     </Link>
-          //   </li>
-          // )
           }
                 
           {/* 관리자 nav-bar */}
@@ -93,22 +86,6 @@ function Header({color}) {
                   </Link>
                 </li>
             )}
-
-          {showModeratorBoard && (
-            <li className="nav-item">
-              <Link to={"/symptom"} className="nav-link">
-                증상
-              </Link>
-            </li>
-          )}
-
-          {showAdminBoard && (
-            <li className="nav-item">
-              <Link to={"/disease"} className="nav-link">
-                질병
-              </Link>
-            </li>
-          )}
         </div>
 
         {currentUser ? (

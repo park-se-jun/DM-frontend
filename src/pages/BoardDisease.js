@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import { Box, Typography } from "@material-ui/core";
 
-import DiseasesList from "../components/diseasePages/diseases-list.component";
+import DiseasesList from "../components/diseasePages/disease-list.component";
 import DiseaseAdd from "../components/diseasePages/disease-add.component";
 import Disease from "../components/diseasePages/disease.component";
 import AdminPageImage from "../resource/images/adminPageImage.jpg"

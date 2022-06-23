@@ -4,15 +4,17 @@ import { useTable, useSortBy } from "react-table";
 import { makeStyles } from '@material-ui/core/styles';
 import _ from "underscore";
 
-import DiseaseService from "../../services/disease.service";
+import MatchService from "../../services/match.service";
+import ImageService from "../../services/image.service";
 import "../GlobalStyles.css";
 
-const DiseasesList = (props) => {
+const MatchList = (props) => {
   const [searchWord, setSearchWord] = useState("");
-  const [diseases, setDiseases] = useState([]);
-  const diseasesRef = useRef();
+  const [images, setImages] = useState([]);
+  const [matches, setMatches] = useState([]);
+  const matchesRef = useRef();
 
-  diseasesRef.current = diseases;
+  matchesRef.current = matches;
 
   const [totalItems, setTotalItems] = useState(0);
   const [page, setPage] = useState(1);
@@ -24,8 +26,8 @@ const DiseasesList = (props) => {
     let params = {};
 
     if (searchWord) {
-      params["diseaseid"] = searchWord;
-      params["diseasename"] = searchWord;
+      params["title"] = searchWord;
+      params["description"] = searchWord;
     }
 
     if (page) {
@@ -39,14 +41,14 @@ const DiseasesList = (props) => {
     return params;
   };
 
-  const retrieveDiseases = () => {
+  const retrieveMatches = () => {
     const params = getRequestParams(searchWord, page, pageSize);
 
-    DiseaseService.getAll(params)
+    MatchService.getAll(params)
         .then((response) => {
-          const { diseases, totalItems, totalPages } = response.data;
+          const { matches, totalItems, totalPages } = response.data;
 
-          setDiseases(diseases);
+          setMatches(matches);
           setTotalItems(totalItems);
           setCount(totalPages);
 
@@ -56,16 +58,24 @@ const DiseasesList = (props) => {
           console.log(e);
         });
 
+    ImageService.getFiles()
+        .then(response => {
+          setImages(response.data);
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
   };
 
   // eslint-disable-next-line
   useEffect(() => {
-    retrieveDiseases();
+    retrieveMatches();
   }, [page, pageSize]);
 
   const searchRequest = () => {
     setPage(1);
-    retrieveDiseases();
+    retrieveMatches();
   };
 
   const onChangeSearchWord = (e) => {
@@ -78,14 +88,14 @@ const DiseasesList = (props) => {
   //   if(e.key === "Enter") searchRequest();
   // };
 
-  const openDisease = (rowIndex) => {
-    const id = diseasesRef.current[rowIndex].id;
+  const openMatch = (rowIndex) => {
+    const id = matchesRef.current[rowIndex].id;
 
-    props.history.push("/disease/" + id);
+    props.history.push("/match/" + id);
   };
 
-  const addDisease = () => {
-    props.history.push("/disease/add");
+  const addMatch = () => {
+    props.history.push("/match/add");
   };
 
   const handlePageChange = (event, value) => {
@@ -97,53 +107,73 @@ const DiseasesList = (props) => {
     setPage(1);
   };
 
+  const imageView = (idx) => {
+    const image = idx;
+    console.log(image)
+    let name = "";
+    let url = "";
+    let exist = false;
+
+    for(let i = 0; i < images.length; i++){
+      if(images[i]['name'].includes(image)){
+        name = images[i]['name'];
+        url = images[i]['url'];
+        exist = true;
+        break;
+      }
+    }
+    if(exist) {
+      return (
+          <div style={{height: "100px", width: "70px"}}
+               className={"image-card right-align vert-center-align left-margin"}>
+            <img src={url} alt={name} height={"100px"} width={"70px"}/>
+          </div>
+      );
+    }else{
+      return (
+          <div style={{height: "100px", width: "70px"}}
+               className={"image-card right-align vert-center-align left-margin"}/>
+      );
+    }
+  };
+
   const columns = useMemo(
       () => [
         {
-          Header: "질병코드",
-          accessor: "diseaseid",
+          Header: "아이디",
+          accessor: "id",
         },
         {
-          Header: "질병명",
-          accessor: "diseasename",
+          Header: "작성자",
+          accessor: "writer",
         },
         {
-          Header: "증상명",
-          accessor: data =>{
-            const symptoms = [...data.symptoms];
-            return (
-                <div>
-                  <div>
-                    <div >
-                      {symptoms.map(
-                          (symptom)=>(
-                                <div key={symptom.symptomid}>{symptom.symptomname}</div>
-                          )
-                      )}
-                    </div>
-                  </div>
-                </div>
-            )
-          },
+          Header: "제목",
+          accessor: "title",
         },
         {
-          Header: "가중치",
-          accessor: data =>{
-            const symptoms = [...data.symptoms];
-            return (
-                <div>
-                  <div>
-                    <div >
-                      {symptoms.map(
-                          (symptom)=>(
-                              <div key={symptom.symptomid}>{symptom.weight}</div>
-                          )
-                      )}
-                    </div>
-                  </div>
-                </div>
-            )
-          },
+          Header: "이미지",
+          accessor: "img",
+        },
+        {
+          Header: "설명",
+          accessor: "description",
+        },
+        {
+          Header: "증상들",
+          accessor: "symptoms",
+        },
+        {
+          Header: "예측",
+          accessor: "predict",
+        },
+        {
+          Header: "결과이미지",
+          accessor: "resultimg",
+        },
+        {
+          Header: "결과",
+          accessor:"result",
         },
         {
           Header: "관리",
@@ -155,7 +185,8 @@ const DiseasesList = (props) => {
                   <button
                       type="button"
                       className="editBtnStyle"
-                      onClick={() => openDisease(rowIdx)}>
+                      onClick={() => openMatch(rowIdx)}>
+                    >>
                   </button>
                 </div>
             );
@@ -172,8 +203,8 @@ const DiseasesList = (props) => {
     headerGroups,
     rows,
     prepareRow,
-  } = useTable({ columns, data: diseases, initialState: {
-      sortBy: [{ id: 'diseaseid', desc: false }]
+  } = useTable({ columns, data: matches, initialState: {
+      sortBy: [{ id: 'title', desc: false }]
     }}, useSortBy);
 
   const useStyles = makeStyles(() => ({
@@ -188,7 +219,7 @@ const DiseasesList = (props) => {
   const classes = useStyles();
 
   return (
-      <div style={{marginTop: "120px", marginBottom: "120px"}}>
+      <div>
         <div className="card">
           <div style={{width: "100%"}}>{/*className="col-md-8"*/}
             <div className="input-group">
@@ -196,21 +227,19 @@ const DiseasesList = (props) => {
                 <tbody>
                 <tr>
                   <td width="25%">
-                    <div className="input-group flex-horiz" style={{alignItems: "center"}}>
+                    <div className="input-group">
                       <input
                           type="text"
-                          className="form-control input-size"
+                          className="form-control"
                           placeholder=""
                           value={searchWord}
                           onChange={onChangeSearchWord}
-                          style={{height: "40px"}}
                       />
                       <div className="input-group-append">
                         <button
-                            className="btn btn-outline-secondary form-control disease-btn"
+                            className="btn btn-outline-secondary form-control"
                             type="button"
                             onClick={searchRequest}
-                            style={{height: "40px", fontSize: "15px"}}
                         >
                           검색
                         </button>
@@ -218,7 +247,7 @@ const DiseasesList = (props) => {
                     </div>
                   </td>
                   <td width="5%"/>
-                  <td width={"40%"} className={"center-align flex-horiz"} style={{justifyContent: "center"}}>
+                  <td width={"40%"} className={"center-align"}>
                     <Pagination
                         classes={{ul: classes.ul}}
                         count={count}
@@ -231,15 +260,14 @@ const DiseasesList = (props) => {
                     />
                   </td>
                   <td width="5%"/>
-                  <td width="5%" style={{textAlign: "center"}}>
-                    <h6 style={{margin: "0px", fontSize: "20px"}}>{totalItems}</h6>
+                  <td width="5%">
+                    <h6>{totalItems}</h6>
                   </td>
                   <td width="5%">
                     <select
                         className={"form-select table input-group"}
                         onChange={handlePageSizeChange}
-                        value={pageSize}
-                        style={{margin: "0px"}}>
+                        value={pageSize}>
                       {pageSizes.map((size) => (
                           <option key={size} value={size}>
                             {size}
@@ -251,8 +279,7 @@ const DiseasesList = (props) => {
                   <td width="5%">
                     <button
                         type="button"
-                        className="addBtnStyle" onClick={addDisease}
-                        style={{width: "100%", padding: "10px 0px", fontSize: "15px"}}>
+                        className="addBtnStyle" onClick={addMatch}>
                       추가
                     </button>
                   </td>
@@ -265,20 +292,17 @@ const DiseasesList = (props) => {
             <table
                 className="table table-bordered"
                 {...getTableProps()}
-                style={{border: "none"}}
             >
               <thead>
-              <tr className="nonBorder">
-                <td width="30%" className={"nonBorder"}/>
-                <th width="30%" className={"nonBorder"}/>
-                <td width="15%" className={"nonBorder"}/>
-                <td width="15%" className={"nonBorder"}/>
+              <tr className={"nonBorder"}>
+                <td width="35%" className={"nonBorder"}/>
+                <th width="55%" className={"nonBorder"}/>
                 <td width="10%" className={"nonBorder"}/>
               </tr>
               {headerGroups.map((headerGroup) => (
                   <tr {...headerGroup.getHeaderGroupProps()}>
                     {headerGroup.headers.map((column) => (
-                        <th className='table-title-size' {...column.getHeaderProps(column.getSortByToggleProps())}>
+                        <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                           {column.render("Header")}
                         </th>
                     ))}
@@ -306,4 +330,4 @@ const DiseasesList = (props) => {
   );
 };
 
-export default DiseasesList;
+export default MatchList;
