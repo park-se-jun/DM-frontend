@@ -1,3 +1,6 @@
+.nonBorder{
+    border: 0px;
+}
 
 .table {
     width: 100%;

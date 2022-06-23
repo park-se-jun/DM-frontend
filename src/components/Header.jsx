@@ -41,7 +41,7 @@ function Header() {
   }, [currentUser, logOut]);
 
   return (
-    <AppBar style={{opacity:"0.9" ,background:"white", padding:"5px 0px"}}>
+    <AppBar style={{ opacity: "0.9", background: "white", padding: "5px 0px" }}>
       <Toolbar className="navbar navbar-expand navbar-default text-black">
         <Link to="/" className="navbar-brand">
           DM
@@ -70,26 +70,26 @@ function Header() {
               </Link>
             </li>
           )}
-          {showAdminBoard && (
-            <li className="nav-item">
-              <Link to="/admin" className="nav-link">
-                Admin Board
-              </Link>
-            </li>
-          )}
-
-          {showModeratorBoard && (
-            <li className="nav-item">
-              <Link to={"/mod"} className="nav-link">
-                Moderator Board
-              </Link>
-            </li>
-          )}
 
           {currentUser && (
             <li className="nav-item">
               <Link to={"/tutorial"} className="nav-link">
-                User
+                사용자권한_데모게시판
+              </Link>
+            </li>
+          )}
+          {showAdminBoard && (
+            <li className="nav-item">
+              <Link to={"/symptom"} className="nav-link">
+                증상
+              </Link>
+            </li>
+          )}
+
+          {showAdminBoard && (
+            <li className="nav-item">
+              <Link to={"/disease"} className="nav-link">
+                질병
               </Link>
             </li>
           )}

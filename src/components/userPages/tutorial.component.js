@@ -8,10 +8,7 @@ const Tutorial = (props) => {
     id: null,
     title: "",
     description: "",
-    img: "",
-    published: false,
-
-    submitted: false
+    img: ""
   };
   const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
   const [message, setMessage] = useState("");
@@ -39,8 +36,8 @@ const Tutorial = (props) => {
         });
   };
 
-  useEffect(() => {//id 가 바뀔때마다
-    getTutorial(props.match.params.id);// 새로운 api call
+  useEffect(() => {
+    getTutorial(props.match.params.id);
     retrieveImages();
   }, [props.match.params.id]);
 
@@ -53,7 +50,9 @@ const Tutorial = (props) => {
   const updateContent = () => {
     let data = {
       id: currentTutorial.id,
-      description: currentTutorial.description
+      title: currentTutorial.title,
+      description: currentTutorial.description,
+      img: currentTutorial.img
     };
 
     TutorialService.update(currentTutorial.id, data)
@@ -75,10 +74,11 @@ const Tutorial = (props) => {
         .catch(e => {
           console.log(e);
         });
+      props.history.push("/tutorial");
   };
 
-  const moveAdmin = () => {
-    // props.history.push("/admin");
+  const moveUp = () => {
+    props.history.push("/tutorial");
   };
 
   const imageView = (tutorial) => {
@@ -160,7 +160,7 @@ const Tutorial = (props) => {
                     &nbsp;&nbsp;
                     <button
                         type="button"
-                        onClick={moveAdmin}
+                        onClick={moveUp}
                         className="addBtnStyle">
                       목록
                     </button>

@@ -4,17 +4,15 @@ import { useTable, useSortBy } from "react-table";
 import { makeStyles } from '@material-ui/core/styles';
 import _ from "underscore";
 
-import TutorialService from "../../services/tutorial.service";
-import ImageService from "../../services/image.service";
+import SymptomService from "../../services/symptom.service";
 import "../GlobalStyles.css";
 
-const TutorialList = (props) => {
+const SymptomList = (props) => {
   const [searchWord, setSearchWord] = useState("");
-  const [images, setImages] = useState([]);
-  const [tutorials, setTutorials] = useState([]);
-  const tutorialsRef = useRef();
+  const [symptoms, setSymptoms] = useState([]);
+  const symptomsRef = useRef();
 
-  tutorialsRef.current = tutorials;
+  symptomsRef.current = symptoms;
 
   const [totalItems, setTotalItems] = useState(0);
   const [page, setPage] = useState(1);
@@ -26,8 +24,8 @@ const TutorialList = (props) => {
     let params = {};
 
     if (searchWord) {
-      params["title"] = searchWord;
-      params["description"] = searchWord;
+      params["symptomid"] = searchWord;
+      params["symptomname"] = searchWord;
     }
 
     if (page) {
@@ -41,14 +39,14 @@ const TutorialList = (props) => {
     return params;
   };
 
-  const retrieveTutorials = () => {
+  const retrieveSymptoms = () => {
     const params = getRequestParams(searchWord, page, pageSize);
 
-    TutorialService.getAll(params)
+    SymptomService.getAll(params)
         .then((response) => {
-          const { tutorials, totalItems, totalPages } = response.data;
+          const { symptoms, totalItems, totalPages } = response.data;
 
-          setTutorials(tutorials);
+          setSymptoms(symptoms);
           setTotalItems(totalItems);
           setCount(totalPages);
 
@@ -57,25 +55,16 @@ const TutorialList = (props) => {
         .catch((e) => {
           console.log(e);
         });
-
-    ImageService.getFiles()
-        .then(response => {
-          setImages(response.data);
-          console.log(response.data);
-        })
-        .catch(e => {
-          console.log(e);
-        });
   };
 
   // eslint-disable-next-line
   useEffect(() => {
-    retrieveTutorials();
+    retrieveSymptoms();
   }, [page, pageSize]);
 
   const searchRequest = () => {
     setPage(1);
-    retrieveTutorials();
+    retrieveSymptoms();
   };
 
   const onChangeSearchWord = (e) => {
@@ -88,14 +77,14 @@ const TutorialList = (props) => {
   //   if(e.key === "Enter") searchRequest();
   // };
 
-  const openTutorial = (rowIndex) => {
-    const id = tutorialsRef.current[rowIndex].id;
+  const openSymptom = (rowIndex) => {
+    const id = symptomsRef.current[rowIndex].id;
 
-    props.history.push("/tutorial/" + id);
+    props.history.push("/symptom/" + id);
   };
 
-  const addTutorial = () => {
-    props.history.push("/tutorial/add");
+  const addSymptom = () => {
+    props.history.push("/symptom/add");
   };
 
   const handlePageChange = (event, value) => {
@@ -107,45 +96,15 @@ const TutorialList = (props) => {
     setPage(1);
   };
 
-  const imageView = (idx) => {
-    const image = idx;
-    console.log(image)
-    let name = "";
-    let url = "";
-    let exist = false;
-
-    for(let i = 0; i < images.length; i++){
-      if(images[i]['name'].includes(image)){
-        name = images[i]['name'];
-        url = images[i]['url'];
-        exist = true;
-        break;
-      }
-    }
-    if(exist) {
-      return (
-          <div style={{height: "100px", width: "70px"}}
-               className={"image-card right-align vert-center-align left-margin"}>
-            <img src={url} alt={name} height={"100px"} width={"70px"}/>
-          </div>
-      );
-    }else{
-      return (
-          <div style={{height: "100px", width: "70px"}}
-               className={"image-card right-align vert-center-align left-margin"}/>
-      );
-    }
-  };
-
   const columns = useMemo(
       () => [
         {
-          Header: "제목",
-          accessor: "title",
+          Header: "질병코드",
+          accessor: "symptomid",
         },
         {
-          Header: "설명",
-          accessor: "description",
+          Header: "질병명",
+          accessor: "symptomname",
         },
         {
           Header: "관리",
@@ -157,7 +116,7 @@ const TutorialList = (props) => {
                   <button
                       type="button"
                       className="editBtnStyle"
-                      onClick={() => openTutorial(rowIdx)}>
+                      onClick={() => openSymptom(rowIdx)}>
                     >>
                   </button>
                 </div>
@@ -175,8 +134,8 @@ const TutorialList = (props) => {
     headerGroups,
     rows,
     prepareRow,
-  } = useTable({ columns, data: tutorials, initialState: {
-      sortBy: [{ id: 'title', desc: false }]
+  } = useTable({ columns, data: symptoms, initialState: {
+      sortBy: [{ id: 'symptomid', desc: false }]
     }}, useSortBy);
 
   const useStyles = makeStyles(() => ({
@@ -251,7 +210,7 @@ const TutorialList = (props) => {
                   <td width="5%">
                     <button
                         type="button"
-                        className="addBtnStyle" onClick={addTutorial}>
+                        className="addBtnStyle" onClick={addSymptom}>
                       추가
                     </button>
                   </td>
@@ -267,9 +226,9 @@ const TutorialList = (props) => {
             >
               <thead>
               <tr className={"nonBorder"}>
-                <td width="35%" className={"nonBorder"}/>
-                <th width="55%" className={"nonBorder"}/>
-                <td width="10%" className={"nonBorder"}/>
+                <td width="40%" className={"nonBorder"}/>
+                <th width="40%" className={"nonBorder"}/>
+                <td width="20%" className={"nonBorder"}/>
               </tr>
               {headerGroups.map((headerGroup) => (
                   <tr {...headerGroup.getHeaderGroupProps()}>
@@ -302,4 +261,4 @@ const TutorialList = (props) => {
   );
 };
 
-export default TutorialList;
+export default SymptomList;

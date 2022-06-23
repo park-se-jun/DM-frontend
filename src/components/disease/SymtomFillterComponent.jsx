@@ -16,14 +16,10 @@ function SymtomFillterComponent({
     "#96BF3F",
     "#79A321",
   ];
-  const prevValueRef = useRef();
   useEffect(() => {
     //버튼의 value가 변경되면
-    prevValueRef.current = value;
-
+    if (setParentStateCallback !== null)
       setParentStateCallback(symptomName, value); // 버튼의 value와 키를 부모로 보낸다
-
-
   }, [value]);
 
   return (
@@ -49,8 +45,10 @@ SymtomFillterComponent.propTypes = {
   symptomName: PropTypes.string.isRequired,
   initialValue: PropTypes.number,
   clickable: PropTypes.bool,
+  setParentStateCallback: PropTypes.func || null,
 };
 SymtomFillterComponent.defaultProps = {
   initialValue: 0,
   clickable: true,
+  setParentStateCallback: null,
 };
