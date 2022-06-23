@@ -90,7 +90,7 @@ const Login = (props) => {
               <Input
                 placeholder ="아이디를입력해주세요"
                 type="text"
-                className="form-control"
+                className="form-control login-form"
                 name="userid"
                 value={userid}
                 onChange={onChangeUserid}
@@ -103,7 +103,7 @@ const Login = (props) => {
               <Input
               placeholder="비밀번호를 입력해 주세요"
                 type="password"
-                className="form-control"
+                className="form-control login-form"
                 name="password"
                 value={password}
                 onChange={onChangePassword}

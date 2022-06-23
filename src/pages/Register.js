@@ -129,7 +129,7 @@ const Register = () => {
                 <label htmlFor="username">이름</label>
                 <Input
                     type="text"
-                    className="form-control"
+                    className="form-control register-form"
                     name="username"
                     value={username}
                     onChange={onChangeUsername}
@@ -141,7 +141,7 @@ const Register = () => {
                 <label htmlFor="userid">ID</label>
                 <Input
                   type="text"
-                  className="form-control"
+                  className="form-control register-form"
                   name="userid"
                   value={userid}
                   onChange={onChangeUserid}
@@ -153,7 +153,7 @@ const Register = () => {
                 <label htmlFor="email">Email</label>
                 <Input
                   type="text"
-                  className="form-control"
+                  className="form-control register-form"
                   name="email"
                   value={email}
                   onChange={onChangeEmail}
@@ -165,7 +165,7 @@ const Register = () => {
                 <label htmlFor="password">Password</label>
                 <Input
                   type="password"
-                  className="form-control"
+                  className="form-control register-form"
                   name="password"
                   value={password}
                   onChange={onChangePassword}
