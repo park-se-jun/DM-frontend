@@ -53,7 +53,7 @@ function Header() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/board" className="nav-link">
+            <Link to="/community" className="nav-link">
               커뮤니티
             </Link>
           </li>
@@ -104,7 +104,7 @@ function Header() {
             </li>
             <li className="nav-item">
               <a href="/login" className="nav-link" onClick={logOut}>
-                LogOut
+                로그아웃
               </a>
             </li>
           </div>
@@ -112,13 +112,13 @@ function Header() {
           <div className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link to={"/login"} className="nav-link">
-                Login
+                로그인
               </Link>
             </li>
 
             <li className="nav-item">
               <Link to={"/register"} className="nav-link">
-                Sign Up
+                회원가입
               </Link>
             </li>
           </div>

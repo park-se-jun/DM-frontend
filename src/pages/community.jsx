@@ -3,7 +3,7 @@ import {
   InputAdornment,
   InputBase,
   TextField,
-  Button
+  Button,
 } from "@material-ui/core";
 import React from "react";
 import MainLayout from "../components/MainLayout";
@@ -17,17 +17,20 @@ function community() {
       detail="현재까지 올라온 모든 게시글입니다."
     >
       <div className="container">
-        <TextField
-          type="search"
-          placeholder="어떤 증상이 동반될까?"
-          InputProps={{
-            endAdornment: (
+        <div>
+          <TextField
+            type="search"
+            placeholder="어떤 증상이 동반될까?"
+            InputProps={{
+              endAdornment: (
                 <IconButton className="p-0" aria-label="search">
                   <SearchIcon />
                 </IconButton>
-            ),
-          }}
-        />
+              ),
+            }}
+          />
+        </div>
+
         <PostPreviewComponent
           title={"작성한 타이틀"}
           detail={

@@ -21,6 +21,7 @@ import { history } from "./helpers/history";
 // import AuthVerify from "./common/AuthVerify";
 import EventBus from "./common/EventBus";
 import community from "./pages/community";
+import Post from "./pages/Post";
 
 const App = () => {
   
@@ -31,7 +32,8 @@ const App = () => {
         <div className="container-fluid m-0 p-0">
           <Switch>
             <Route exact path={["/", "/home"]} component={Home} />
-            <Route exact path = "/board" component={community} />
+            <Route exact path = "/community" component={community} />
+            <Route exact path = "/community/:id" component ={Post}/>
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
