@@ -100,9 +100,10 @@ DM(Disease Mapping) 은 증상을 통해 질환을 예측하는 서비스 입니
 [시연 영상](https://youtu.be/YJjPYJ8PYI8)
 
 ## 기념 사진
+![기념사진](/readme/%EA%B8%B0%EB%85%90%EC%82%AC%EC%A7%84.PNG)
 ## 참가자 코멘트
 
-- [상명대 최현진](https://github.com/Yonghyeon-Choi)
+- [상명대 최재현](https://github.com/Yonghyeon-Choi)
 ```
 여기에 남겨주세요!
 ```
