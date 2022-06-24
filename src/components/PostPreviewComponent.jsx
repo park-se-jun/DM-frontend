@@ -1,5 +1,4 @@
 import React from "react";
-import CommentIcon from "@material-ui/icons/Comment";
 import { Box } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -13,8 +12,6 @@ function PostPreviewComponent({
   date,
   predict,
   result,
-  canEdit,
-  onEditClick,
   ...props
 }) {
   const symtomTags = symtomArray.map((symptom) => (
@@ -66,7 +63,6 @@ function PostPreviewComponent({
           <span>작성자&nbsp;| &nbsp;&nbsp;{author} </span>
           <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{date}</span>
         </div>
-        {canEdit && <div onClick={onEditClick}>수정하기</div>}
       </div>
     </Box>
   );

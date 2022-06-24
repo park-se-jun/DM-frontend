@@ -6,7 +6,7 @@ import "../GlobalStyles.css";
 const Community = (props) => {
   const initialMatchState = {
     id: null,
-    writer: {},
+    writer: "",
     title: "",
     img: "",
     description:"",
@@ -87,11 +87,11 @@ const Community = (props) => {
         .catch(e => {
           console.log(e);
         });
-      props.history.push("/match");
+      props.history.push("/community");
   };
 
   const moveUp = () => {
-    props.history.push("/match");
+    props.history.push("/community");
   };
 
   const imageView = (match, flag) => {

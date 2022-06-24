@@ -6,7 +6,7 @@ import _ from "underscore";
 import del_logo from "../delete.png";
 import DefaultDataService from "../../services/defaultData.service";
 
-const MatchAdd = () => {
+const CommunityAdd = () => {
   const initialMatchState = {
     id: null,
     writer: "",
@@ -63,6 +63,7 @@ const MatchAdd = () => {
   const saveMatch = (event) => {
     event.preventDefault();
     match.symptoms = [...submitSymptoms];
+    match.predict = predictDisease(submitSymptoms);
 
     let data = {
       id: match.id,
@@ -302,6 +303,47 @@ const MatchAdd = () => {
     );
   };
 
+  const predictDisease = (symptomArray) => {//symptomArray = [{"symptomname":"자살충동","weight":4},{"절망감",2},{"불면",1}] 과 같이 증상과 weight 가 들어간 형식
+    let predictedDiseaseArray = [];
+    //  if(symptomArray<3) return predictedDiseaseArray;
+    // symptomArray.sort((a,b)=>b[1]-a[1]); // 제가 3개를 했엇는데, 전체에대서 5 5 4 3 1 1 filter    // 3까지만 가져가능방법
+    // 증상 1 (5) 증상 2 (4) 증상 3(2) 증상 4(5) 증상 5(1) -> 평균 : 3.4
+    // 질병A  증상 1(1) 증상 2(1) 증상 3(1) 증상 4(1) 증상 5(1) 증상 6 증상 7  -> 1~5증상평균 > 3.4 => 집어넣기 or <3.4 제외
+    let average_user = 0; // 사용자가 선택한 증상들의 평균 가중치
+    let count_user = 0;   // 사용자가 선택한 증상들의 개수
+
+    symptomArray.map((key) => {
+      average_user += Number(key.weight);
+      count_user += 1
+    })
+
+    average_user = average_user / count_user;  // 평균을 구해줌.
+
+    for(let {diseasename, symptoms} of data.diseases){ // 수많은 질병 중 1개 질병 꺼냄.
+
+      let average_of_symptom_of_disease = 0;    // 해당 질병에서 증상들의 가중치 용 변수
+      let count_symptom_of_disease =0;              // 해당 질병에서 사용자 증상들이 있는 개수
+
+      for(let {symptomname, weight}of symptoms){ // 증상을 하나 뽑음
+
+        symptomArray.map((key) => {
+          if (key.symptomname === symptomname) {
+            average_of_symptom_of_disease += Number(weight);
+            count_symptom_of_disease+=1;
+            if(count_symptom_of_disease === count_user) return false;
+          }
+        });
+
+        if(count_symptom_of_disease === count_user) break;    // 사용자 증상이 해당 질병의 증상에 다 있기 때문에 마찬가지로 break
+      }
+
+      if(count_symptom_of_disease === count_user && average_user <= average_of_symptom_of_disease / count_symptom_of_disease)  // 사용자 증상들이 해당 질병 증상에 다 있으며, 사용자 증상들의 가중치보다 해당 질병의 해당되는 증상들의 가중치가 더 높으면, 해당 질병이 유력하기에 예측 질병에 넣어줌.
+        predictedDiseaseArray.push(diseasename);   // 질병 푸시
+      if(predictedDiseaseArray.length>=3) break;     // 질병 개수를 한정 짓기 위해 3개만 허용.
+    }
+    return predictedDiseaseArray;  // 예측 질병 반환.
+  }
+
   return (
       <div className="submit-form">
         {submitted ? (
@@ -355,15 +397,15 @@ const MatchAdd = () => {
                 </div>
 
                 <label htmlFor="predict">예측 질병</label>
+
                 <div className="form-group">
                   <input
                       type="text"
                       className="form-control"
                       id="predict"
                       name="predict"
-                      value={match.predict}
+                      value={predictDisease(submitSymptoms)}
                       onChange={handleInputChange}
-                      disabled
                   />
                 </div>
 
@@ -400,4 +442,4 @@ const MatchAdd = () => {
   );
 };
 
-export default MatchAdd;
+export default CommunityAdd;

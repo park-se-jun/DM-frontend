@@ -113,7 +113,7 @@ const Register = () => {
   };
 
   return (
-    <MainLayout imagePath={SignInPageImage} title="회원가입"detail="해당 서비스를 이용하기 위해, 사용자 정보를 등록해주세요.">
+  <MainLayout imagePath={SignInPageImage} title="회원가입"detail="해당 서비스를 이용하기 위해, 사용자 정보를 등록해주세요.">
    <div className="col-md-12"      
         style={{
           minHeight: "70vh",
@@ -127,7 +127,7 @@ const Register = () => {
         <Form onSubmit={handleRegister} ref={form}>
           {!successful && (
             <div>
-              <div className="form-group" >
+              <div className="form-group">
                 <label htmlFor="username">이름</label>
                 <Input
                     type="text"
@@ -176,7 +176,7 @@ const Register = () => {
               </div>
 
               <div className="form-group">
-                <button className="btn btn-primary btn-block" st
+              <button className="btn btn-primary btn-block" st
                 style={{height: "50px", marginTop: "70px"}}>회원가입</button>
               </div>
             </div>

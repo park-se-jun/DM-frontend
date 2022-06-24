@@ -6,7 +6,7 @@ function MainLayout({ imagePath, title, detail, children }) {
   return (
     <>
       <Header color="white"/>
-      {imagePath && (
+      {imagePath ? (
         <Box
           class="Imagese"
           style={{
@@ -35,7 +35,7 @@ function MainLayout({ imagePath, title, detail, children }) {
           </div>
           
         </Box>
-      )}
+      ):(<Box style={{height:"100px"}}/>)}
       {!imagePath&&(<Box style={{width:"100vw"}}/>)
 
       }
