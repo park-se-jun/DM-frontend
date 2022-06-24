@@ -65,37 +65,10 @@ DM(Disease Mapping) 은 증상을 통해 질환을 예측하는 서비스 입니
 프로젝트에서 사용한 데이터 셋의 링크 입니다.
  - [데이터셋](https://people.dbmi.columbia.edu/~friedma/Projects/DiseaseSymptomKB/index.html)
 ## 예상 프로젝트 UI
-메인페이지 2가지 모습
-![main1](readme/UI/main.js(1%EB%B2%88).png)
-![main2](readme/UI/main.js(2%EB%B2%88).png)
-전체 게시글 페이지
-![list](readme/UI/listPost.js.png)
-게시글 상세 페이지
-![viewPost](readme/UI/viewPost(no%20%EC%A7%84%EB%8B%A8%EA%B2%B0%EA%B3%BC).js.png)
-마이페이지
-![myPageInfo](readme/UI/myPageInfo.js.png)
-로그인 페이지
-![login](readme/UI/login.js.png)
-회원가입 페이지
-![register](readme/UI/register.js.png)
-글 작성 페이지
-![write](readme/UI/writePost(1).js.png)
+
 ## 실제 프로젝트 UI
 (해당 레포지토리 기준입니다! 시연시는 다른 UI입니다.)
-메인페이지
-![메인페이지](readme/resultUI/메인.png)
-전체 게시글페이지
-![게시글전체보기페이지](readme/resultUI/community.png)
-상세 게시글페이지
-![게시글상세보기페이지](readme/resultUI/viewpost.png)
-질병정보페이지
-![질병정보페이지](readme/resultUI/%EC%A7%88%EB%B3%91%EC%A0%95%EB%B3%B4.png)
-마이페이지
-![마이페이지](readme/resultUI/mypage.png)
-로그인페이지
-![로그인페이지](readme/resultUI/%EB%A1%9C%EA%B7%B8%EC%9D%B8.png)
-회원가입페이지
-![회원가입페이지](readme/resultUI/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85.png)
+추후수정
 ## 시연 영상
 [시연 영상](https://youtu.be/YJjPYJ8PYI8)
 
@@ -110,11 +83,18 @@ DM(Disease Mapping) 은 증상을 통해 질환을 예측하는 서비스 입니
 
 - [충북대 남재현](https://github.com/JaeHyeon-Nam)
 ```
-여기에 남겨주세요!
+  이번 해커톤을 Back-end 개발자로써 참여하게 되었습니다. (・ิω・ิ)
+  3일동안 짧은 기간에 밤새가며 개발 역량과 협업 능력을 충분히 키우는 계기가 되었습니다.
+  아이디어만 생각하여 마음 편히 참여하게 되었는데, 빠르게 개발을 해야하다 보니까 부족한 점이 많이 보였던 것 같습니다.
+  그렇지만 Back-end 개발에 많은 지식과 도움을 주신 용현님 덕분에 충분한 이해와 전반적으로 원활한 팀 진행이 가능했습니다! 😄
+  또 세준님과 민석님께서 팀원 분위기에 많은 신경을 써주시고 Front-end 부분을 완벽히 설계를 통해 성공적인 결과물을 얻었습니다.
+  디자이너로 참여하여 UI와 발표자료를 맡아주신 현진님은 개발 분야에도 뛰어난 실력을 보여주셨기에 최종적으로 해커톤, 잘 마무리하여습니다.
+  함께 진행해주신 팀원분들과 기획과 설계, 운영을 진행하며 제가 부족한 점이 무엇인지 파악하였고, 뜻 깊은 경험이 되었습니다.
+  너무 자랑스럽고 고생 많았습니다!! 감사드립니다!👍
 ```
 - [경운대 손민석](https://github.com/SonMinSeock)
 ```
-이버 해커톤 처음으로 처음이라 어설프고 그랬지만, 3일동안 개발자, 디자이너들과 함께 하여 영광이였습니다.
+이번 해커톤 처음으로 처음이라 어설프고 그랬지만, 3일동안 개발자, 디자이너들과 함께 하여 영광이였습니다.
 남재현 팀장님 뛰어난 지도력, 판단력으로 모든 팀원들을 이끌주고 감사합니다~(어벤져스에 닉퓨리 역할~)✍️ 🧑‍💻
 최용현 개발자님은 제가 살면서? 뛰어난 백엔드개발자 처음 본것 같습니다. 거기에 도커까지 활용하다니 놀라웠습니다~👨‍💻
 박세준 개발자님 세준~ 우리팀에 프론트엔드개발자 브레인역할~ 프론트엔드 개발자로써 많이 배웠습니다~🧑‍💻
