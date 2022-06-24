@@ -65,10 +65,40 @@ DM(Disease Mapping) 은 증상을 통해 질환을 예측하는 서비스 입니
 프로젝트에서 사용한 데이터 셋의 링크 입니다.
  - [데이터셋](https://people.dbmi.columbia.edu/~friedma/Projects/DiseaseSymptomKB/index.html)
 ## 예상 프로젝트 UI
-
+메인페이지 2가지 모습
+![main1](readme/UI/main.js(1%EB%B2%88).png)
+![main2](readme/UI/main.js(2%EB%B2%88).png)
+전체 게시글 페이지
+![list](readme/UI/listPost.js.png)
+게시글 상세 페이지
+![viewPost](readme/UI/viewPost(no%20%EC%A7%84%EB%8B%A8%EA%B2%B0%EA%B3%BC).js.png)
+마이페이지
+![myPageInfo](readme/UI/myPageInfo.js.png)
+로그인 페이지
+![login](readme/UI/login.js.png)
+회원가입 페이지
+![register](readme/UI/register.js.png)
+글 작성 페이지
+![write](readme/UI/writePost(1).js.png)
 ## 실제 프로젝트 UI
 (해당 레포지토리 기준입니다! 시연시는 다른 UI입니다.)
-추후수정
+메인페이지
+![메인페이지](readme/resultUI/메인.png)
+전체 게시글페이지
+![게시글전체보기페이지](readme/resultUI/community.png)
+상세 게시글페이지
+![게시글상세보기페이지](readme/resultUI/viewpost.png)
+질병정보페이지
+![질병정보페이지](readme/resultUI/%EC%A7%88%EB%B3%91%EC%A0%95%EB%B3%B4.png)
+마이페이지
+![마이페이지](readme/resultUI/mypage.png)
+로그인페이지
+![로그인페이지](readme/resultUI/%EB%A1%9C%EA%B7%B8%EC%9D%B8.png)
+회원가입페이지
+![회원가입페이지](readme/resultUI/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85.png)
+## 시연 영상
+[시연 영상](https://youtu.be/YJjPYJ8PYI8)
+
 ## 시연 영상
 [시연 영상](https://youtu.be/YJjPYJ8PYI8)
 
