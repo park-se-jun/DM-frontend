@@ -10,7 +10,7 @@ https://github.com/Yonghyeon-Choi/Hackathon_for_SWUNIV_2022__4IDLE_DMProject
 
 참가해주신 분들 다들 너무 감사합니다!
 
-[@상명대 최현진](https://github.com/Yonghyeon-Choi)
+[@상명대 최용현](https://github.com/Yonghyeon-Choi)
 
 [@충북대 남재현](https://github.com/JaeHyeon-Nam)
 
@@ -103,7 +103,7 @@ DM(Disease Mapping) 은 증상을 통해 질환을 예측하는 서비스 입니
 ![기념사진](/readme/%EA%B8%B0%EB%85%90%EC%82%AC%EC%A7%84.PNG)
 ## 참가자 코멘트
 
-- [상명대 최재현](https://github.com/Yonghyeon-Choi)
+- [상명대 최용현](https://github.com/Yonghyeon-Choi)
 ```
 여기에 남겨주세요!
 ```
