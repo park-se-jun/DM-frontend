@@ -1,16 +1,23 @@
+.nonBorder{
+    border: none !important;
+}
 
 .table {
     width: 100%;
-    font-size: 11px;
+    font-size: 15px;
 }
 
 .addBtnStyle{
-    color: #021420;
-    background: white;
+    color: black;
+    background: #D4FFC0;
     padding: 0.100rem 0.50rem;
-    border: 1px solid dimgray;
+    border: 1px solid white;
     border-radius: 0.300rem;
-    font-size: 11px;
+    font-size: 12px;
+}
+
+.addBtnStyle:hover {
+    background-color: #B8DF66;
 }
 
 .editBtnStyle{
@@ -24,15 +31,19 @@
 
 .delBtnStyle{
     color: white;
-    background: #c31432;
-    padding: 0.100rem 0.50rem;
+    background: #BDBDBD;
+    padding: 5px;
     border: none;
     border-radius: 0.300rem;
     font-size: 11px;
 }
 
+.delBtnStyle:hover {
+    background: #c31432;
+}
+
 .card {
-    background-color: #f7f7f7;
+    background-color: white;
     /*padding: 20px 25px 30px;*/
     margin: 0 auto 25px;
     -moz-border-radius: 2px;
@@ -128,3 +139,29 @@
 .floatRight{
     float: right;
 }
+
+/* diseaseCom */
+.disease-btn:hover {
+    background-color: #B8DF66;
+    color: black;
+}
+
+.table-title-size {
+    font-size: 15px;
+    text-align: center;
+}
+
+select {
+    width: 100%;
+    padding: 5px 0px;
+    font-size: 20px !important;
+}
+
+select:focus {
+    outline: none;
+}
+
+select option {
+    font-size: 17px;
+}
+

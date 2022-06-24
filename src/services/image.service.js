@@ -5,7 +5,7 @@ const upload = (file) => {
 
     formData.append("file", file);
 
-    return http.post("/images/upload", formData, {
+    return http.post("/authority/all/images/upload", formData, {
         headers: {
             "Content-Type": "multipart/form-data",
         },
@@ -13,12 +13,12 @@ const upload = (file) => {
 };
 
 const getFiles = () => {
-    return http.get("/images/files");
+    return http.get("/authority/all/images/files");
 };
 
-const imageService = {
+const ImageService = {
     getFiles,
     upload,
 };
 
-export default imageService;
+export default ImageService;
